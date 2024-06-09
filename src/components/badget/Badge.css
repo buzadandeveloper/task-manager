@@ -28,12 +28,20 @@
   }
 .dropdown-menu {
   display: flex;
-  position: fixed;
+  position: absolute;
+  left: 50%;
   gap: 0.5em;
   font-size: 0.8rem;
   font-weight: 700;
-  transform: translateX(-30%);
-  margin: 1em;
+  margin: 0.5em;
+  transform: scaleY(0);
+  transform-origin: top;
+  opacity: 0;
+  transition: opacity 0.3s ease-in, transform 0.3s ease;
+}
+.dropdown-menu.show {
+  opacity: 1;
+  transform: scaleY(1);
 }
 .dropdown-item {
   color: #808080;;

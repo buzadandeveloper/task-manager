@@ -21,7 +21,7 @@ const data = [
   },
   {
     id: "T-3",
-    status: "To do",
+    status: "To Do",
     name: "Create a Design System for Enum Workspace.",
     taskDetails: "iasfioasnf saolfnasof  aosfaosf",
     dueDate: new Date(2024, 4, 14),

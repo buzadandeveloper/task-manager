@@ -18,19 +18,17 @@ function Badge({ status, taskId, openTaskInfo, updateTaskStatus }) {
       >
         <p>{status}</p>
       </div>
-      {showDropDown && (
-        <div className="dropdown-menu">
+        <div className={`dropdown-menu ${showDropDown && "show"}`}>
           {statusTask.map((statusOption) => (
             <div
               className="dropdown-item"
-              key={statusOption.id}
+              key={statusOption}
               onClick={() => handleStatusChange(statusOption)}
             >
               {statusOption}
             </div>
           ))}
         </div>
-      )}
     </div>
   );
 }
