@@ -1,0 +1,49 @@
+.task-info-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    width: 20em;
+}
+.task-info-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6em;
+}
+.task-info-header h3 {
+    margin: 0;
+    line-height: 1;
+}
+.task-header {
+    display: flex;
+    justify-content: space-between;
+}
+h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+.task-info-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+.task-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+.task-contnet h2{
+word-wrap: break-word;
+white-space: normal;
+}
+.task-content h4 {
+    font-weight: 400;
+}
+.task-details {
+    white-space: pre-wrap;
+}
+.task-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}

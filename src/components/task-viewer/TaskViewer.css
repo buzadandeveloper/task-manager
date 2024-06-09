@@ -1,0 +1,21 @@
+.task-view-container {
+    background-color: #c3c3c7;
+    border-radius: 50px;
+    padding: 3rem;
+}
+.task-view-container::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+  }
+
+.task-list-grid {
+   display: grid;
+   grid-template-rows: repeat(3, 180px);
+   grid-template-columns: repeat(4, 250px);
+   gap: 3.125em;
+}
+
+@media (max-width: 1000px) {
+  .task-list-grid {
+    grid-template-columns: repeat(2, 250px);
+  }
+}

@@ -1,0 +1,48 @@
+/* .badge-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7em;
+} */
+.badge {
+    background-color: #f2f2f2;
+    padding: 5px 10px;
+    border-radius: 12px;
+    display: flex;
+    cursor: default;
+  }
+  .badge p {
+    font-weight: 700;
+    font-size: 0.75rem;
+    color: #808080;
+    line-height: 0.875rem;
+  }
+  .badge-pointer{
+    cursor: pointer;
+    background-color: #f2f2f2;
+    padding: 5px 10px;
+    border-radius: 12px;
+  }
+  .badge-pointer:hover {
+    background-color: #e8e8e8;
+    transition: 0.3s ease;
+  }
+.dropdown-menu {
+  display: flex;
+  position: fixed;
+  gap: 0.5em;
+  font-size: 0.8rem;
+  font-weight: 700;
+  transform: translateX(-30%);
+  margin: 1em;
+}
+.dropdown-item {
+  color: #808080;;
+  background-color: #f2f2f2;
+  border-radius: 12px;
+  padding: 3px 7px;
+  cursor: pointer;
+}
+.dropdown-item:hover {
+  background-color: #e8e8e8;
+    transition: 0.3s ease-in;
+}
