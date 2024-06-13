@@ -75,25 +75,17 @@ export default function App() {
       <div className="app-container">
         <div className="app-content">
           <TaskViewer
-            taskList={taskList}
-            openModal={openModal}
-            openTaskInfo={openTaskInfo}
+           taskList={taskList}
+           openModal={openModal}
+           openTaskInfo={openTaskInfo}
+           isModalOpen={isModalOpen}
+           addNewTask={addNewTask}
+           closeModal={closeModal}
+           isTaskViewOpen={isTaskViewOpen}
+           closeTaskInfo={closeTaskInfo}
+           updateTaskStatus={updateTaskStatus}
+           selectedTask={selectedTask}
           />
-          {isModalOpen && (
-            <Modal isModalOpen={isModalOpen}>
-              <CreateTaskForm addNewTask={addNewTask} closeModal={closeModal} />
-            </Modal>
-          )}
-          {isTaskViewOpen && (
-            <Modal isModalOpen={isTaskViewOpen}>
-              <TaskView
-                closeModal={closeTaskInfo}
-                task={selectedTask}
-                openTaskInfo={openTaskInfo}
-                updateTaskStatus={updateTaskStatus}
-              />
-            </Modal>
-          )}
         </div>
       </div>
     </>

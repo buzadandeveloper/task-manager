@@ -4,8 +4,8 @@ import CloseButton from "../close-button/CloseButton";
 import Badge from "../badget/Badge";
 import DueDate from "../date-container/DueDate";
 
-const TaskView = ({ openTaskInfo, closeModal, task, updateTaskStatus }) => {
-  const { id, status, name, taskDetails, dueDate } = task;
+const TaskView = ({ openTaskInfo, closeModal, selectedTask, updateTaskStatus }) => {
+  const { id, status, name, taskDetails, dueDate } = selectedTask;
 
   return (
     <>
