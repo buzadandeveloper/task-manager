@@ -44,6 +44,32 @@ white-space: normal;
 }
 .task-footer {
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+    justify-content: space-between;
+}
+.task-footer .delete-task {
+    color: rgb(209, 43, 43);
+    transform: translateY(8px);
+    font-size: 1rem;
+    border: none;
+    background-color: #ffffff;
+    position: relative;
+    display: inline-block;
+}
+.task-footer .delete-task:hover {
+    cursor: pointer;
+}
+.task-footer .delete-task::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1.3px;
+    bottom: 5px;
+    left: 0;
+    visibility: hidden;
+    background-color: rgb(209, 43, 43);;
+    transition: all 0.3s ease-in-out;
+}
+.task-footer .delete-task:hover::after {
+    visibility: visible;
+    width: 100%;
 }

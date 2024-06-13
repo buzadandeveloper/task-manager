@@ -47,7 +47,7 @@ const CreateTaskForm = ({ addNewTask, closeModal }) => {
         name: formData.taskName,
         dueDate: formData.taskDate,
         taskDetails: formData.taskDetails,
-        status: "To do",
+        status: "To Do",
       };
       addNewTask(newTask);
       resetForm();

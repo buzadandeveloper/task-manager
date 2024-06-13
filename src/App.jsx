@@ -1,13 +1,10 @@
 import React, { useState } from "react";
 import "./App.css";
 import TaskViewer from "./components/task-viewer/TaskViewer";
-import CreateTaskForm from "./components/form/CreateTaskForm";
-import Modal from "./components/modal/Modal";
-import TaskView from "./components/task-view/TaskView";
 const data = [
   {
     id: "T-1",
-    status: "Complete",
+    status: "Completed",
     name: "Create a Design System for Enum Workspace.",
     taskDetails: "iasfioasnf saolfnasof  aosfaosf",
     dueDate: new Date(2024, 4, 13),
@@ -58,6 +55,12 @@ export default function App() {
     }));
   };
 
+  const handleDeleteTask = (id) => {
+    const newTaskList = taskList.filter((li) => li.id !== id)
+    setTaskList(newTaskList);
+    setIsTaskViewOpen(false);
+  }
+  
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
@@ -69,6 +72,7 @@ export default function App() {
     setIsTaskViewOpen(false);
     setIsTaskViewOpen(null);
   };
+  
 
   return (
     <>
@@ -85,6 +89,7 @@ export default function App() {
            closeTaskInfo={closeTaskInfo}
            updateTaskStatus={updateTaskStatus}
            selectedTask={selectedTask}
+           handleDeleteTask={handleDeleteTask}
           />
         </div>
       </div>

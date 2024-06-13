@@ -4,7 +4,13 @@ import CloseButton from "../close-button/CloseButton";
 import Badge from "../badget/Badge";
 import DueDate from "../date-container/DueDate";
 
-const TaskView = ({ openTaskInfo, closeModal, selectedTask, updateTaskStatus }) => {
+const TaskView = ({
+  openTaskInfo,
+  closeModal,
+  selectedTask,
+  updateTaskStatus,
+  handleDeleteTask
+}) => {
   const { id, status, name, taskDetails, dueDate } = selectedTask;
 
   return (
@@ -19,7 +25,7 @@ const TaskView = ({ openTaskInfo, closeModal, selectedTask, updateTaskStatus }) 
             <p className="task-id">{id}</p>
             <Badge
               status={status}
-              taskId = {id}
+              taskId={id}
               openTaskInfo={openTaskInfo}
               updateTaskStatus={updateTaskStatus}
             />
@@ -35,6 +41,8 @@ const TaskView = ({ openTaskInfo, closeModal, selectedTask, updateTaskStatus }) 
             </div>
           </div>
           <div className="task-footer">
+            
+            <button className="delete-task" onClick={() => handleDeleteTask(id)}>Delete</button>
             <DueDate dueDate={dueDate} />
           </div>
         </div>

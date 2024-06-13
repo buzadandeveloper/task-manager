@@ -17,6 +17,7 @@ function TaskViewer({
   closeTaskInfo,
   updateTaskStatus,
   selectedTask,
+  handleDeleteTask
 }) {
   return (
     <div className="task-view-container">
@@ -38,6 +39,7 @@ function TaskViewer({
                 selectedTask={selectedTask}
                 openTaskInfo={openTaskInfo}
                 updateTaskStatus={updateTaskStatus}
+                handleDeleteTask={handleDeleteTask}
               />
             </Modal>
           )}
