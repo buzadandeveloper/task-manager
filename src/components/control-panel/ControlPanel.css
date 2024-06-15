@@ -3,17 +3,3 @@
     justify-content: space-between;
   }
   
-  .create-task-btn {
-    padding: 1em 2em;
-    margin-bottom: 2em;
-    border-radius: 12px;
-    border: 0;
-    cursor: pointer;
-    background-color: #3754DB;
-    color: #fff;
-    transition: 0.6s ease;
-  } 
-  
-  .create-task-btn:hover {
-    background-color: rgba(49, 83, 235, 0.854);
-  }

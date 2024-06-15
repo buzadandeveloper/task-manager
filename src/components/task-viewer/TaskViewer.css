@@ -13,9 +13,18 @@
    grid-template-columns: repeat(4, 250px);
    gap: 3.125em;
 }
-
+.empty-list-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1150px;
+  height: 640px;
+}
 @media (max-width: 1000px) {
   .task-list-grid {
     grid-template-columns: repeat(2, 250px);
+  }
+  .empty-list-container {
+    width: 550px;
   }
 }

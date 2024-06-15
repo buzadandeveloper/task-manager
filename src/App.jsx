@@ -26,7 +26,7 @@ const data = [
 ];
 
 export default function App() {
-  const [taskList, setTaskList] = useState(data);
+  const [taskList, setTaskList] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isTaskViewOpen, setIsTaskViewOpen] = useState(false);
   const [selectedTask, setSelectedTask] = useState(null);
@@ -56,7 +56,7 @@ export default function App() {
   };
 
   const handleDeleteTask = (id) => {
-    const newTaskList = taskList.filter((li) => li.id !== id)
+    const newTaskList = taskList.filter((li) => li.id !== id);
     setTaskList(newTaskList);
     setIsTaskViewOpen(false);
   }
