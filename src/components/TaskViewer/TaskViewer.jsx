@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./TaskViewer.css";
 import TaskCard from "../TaskCard/TaskCard";
 import ControlPanel from "../ControlPanel/ControlPanel";
@@ -6,20 +6,22 @@ import CreateTaskForm from "../Form/CreateTaskForm";
 import Modal from "../Modal/Modal";
 import TaskView from "../TaskView/TaskView";
 import EmptyListView from "../EmptyListView/EmptyListView";
+import { TaskContext } from "../Context/TaskContext";
 
-function TaskViewer({
-  taskList,
-  openModal,
-  openTaskInfo,
-  isModalOpen,
-  addNewTask,
-  closeModal,
-  isTaskViewOpen,
-  closeTaskInfo,
-  updateTaskStatus,
-  selectedTask,
-  handleDeleteTask,
-}) {
+const TaskViewer = () => {
+  const {
+    taskList,
+    openModal,
+    openTaskInfo,
+    isModalOpen,
+    addNewTask,
+    closeModal,
+    isTaskViewOpen,
+    closeTaskInfo,
+    updateTaskStatus,
+    selectedTask,
+    handleDeleteTask,
+  } = useContext(TaskContext);
   return (
     <div className="task-view-container">
       <div className="task-list-container">
@@ -54,6 +56,6 @@ function TaskViewer({
       </div>
     </div>
   );
-}
+};
 
 export default TaskViewer;
