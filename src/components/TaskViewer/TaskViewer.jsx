@@ -21,14 +21,15 @@ const TaskViewer = () => {
     updateTaskStatus,
     selectedTask,
     handleDeleteTask,
+    filteredTasks,
   } = useContext(TaskContext);
   return (
     <div className="task-view-container">
       <div className="task-list-container">
         <ControlPanel openModal={openModal} taskList={taskList} />
         <div className={"task-list-grid"}>
-          {taskList.length > 0 ? (
-            taskList.map((task) => (
+          {filteredTasks.length > 0 ? (
+            filteredTasks.map((task) => (
               <TaskCard key={task.id} {...task} openTaskInfo={openTaskInfo} />
             ))
           ) : (

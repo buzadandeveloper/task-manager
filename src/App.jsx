@@ -5,14 +5,12 @@ import { TaskProvider } from "./components/Context/TaskContext";
 
 export default function App() {
   return (
-    <>
+    <TaskProvider>
       <div className="app-container">
         <div className="app-content">
-          <TaskProvider>
-            <TaskViewer />
-          </TaskProvider>
+          <TaskViewer />
         </div>
       </div>
-    </>
+    </TaskProvider>
   );
 }

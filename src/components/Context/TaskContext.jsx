@@ -31,6 +31,7 @@ const TaskProvider = ({ children }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isTaskViewOpen, setIsTaskViewOpen] = useState(false);
   const [selectedTask, setSelectedTask] = useState(null);
+  const [filter, setFilter] = useState("All Tasks");
 
   const addNewTask = (newTask) => {
     setTaskList((prevState) => [
@@ -73,6 +74,27 @@ const TaskProvider = ({ children }) => {
     setIsTaskViewOpen(false);
     setIsTaskViewOpen(null);
   };
+  const filteredTasks =
+    filter === "All Tasks"
+      ? taskList
+      : taskList.filter((task) => task.status === filter);
+
+  const totalTasks = taskList.length;
+
+   const filteredLength = (filter) => {
+    switch (filter) {
+      case "To Do":
+        return taskList.filter((task) => task.status === "To Do").length;
+      case "In Progress":
+        return taskList.filter((task) => task.status === "In Progress").length;
+      case "Completed":
+        return taskList.filter((task) => task.status === "Completed").length;
+      case "All Tasks":
+      default:
+        return totalTasks;
+    }
+  };
+  
   return (
     <TaskContext.Provider
       value={{
@@ -87,6 +109,9 @@ const TaskProvider = ({ children }) => {
         updateTaskStatus,
         selectedTask,
         handleDeleteTask,
+        filteredTasks,
+        setFilter,
+        filteredLength,
       }}
     >
       {children}
@@ -94,4 +119,4 @@ const TaskProvider = ({ children }) => {
   );
 };
 
-export { TaskProvider, TaskContext};
+export { TaskProvider, TaskContext };
