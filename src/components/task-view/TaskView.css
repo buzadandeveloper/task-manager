@@ -1,75 +1,75 @@
 .task-info-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 2em;
-    width: 20em;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  width: 20em;
 }
 .task-info-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 6em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6em;
 }
 .task-info-header h3 {
-    margin: 0;
-    line-height: 1;
+  margin: 0;
+  line-height: 1;
 }
 .task-header {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 h2 {
-    font-size: 1.2rem;
-    font-weight: 700;
+  font-size: 1.2rem;
+  font-weight: 700;
 }
 .task-info-content {
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
 }
 .task-content {
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
 }
-.task-contnet h2{
-word-wrap: break-word;
-white-space: normal;
+.task-contnet h2 {
+  word-wrap: break-word;
+  white-space: normal;
 }
 .task-content h4 {
-    font-weight: 400;
+  font-weight: 400;
 }
 .task-details {
-    white-space: pre-wrap;
+  white-space: pre-wrap;
 }
 .task-footer {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 .task-footer .delete-task {
-    color: rgb(209, 43, 43);
-    transform: translateY(8px);
-    font-size: 1rem;
-    border: none;
-    background-color: #ffffff;
-    position: relative;
-    display: inline-block;
+  color: rgb(209, 43, 43);
+  transform: translateY(8px);
+  font-size: 1rem;
+  border: none;
+  background-color: #ffffff;
+  position: relative;
+  display: inline-block;
 }
 .task-footer .delete-task:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 .task-footer .delete-task::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 1.3px;
-    bottom: 5px;
-    left: 0;
-    visibility: hidden;
-    background-color: rgb(209, 43, 43);;
-    transition: all 0.3s ease-in-out;
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 1.3px;
+  bottom: 5px;
+  left: 0;
+  visibility: hidden;
+  background-color: rgb(209, 43, 43);
+  transition: all 0.3s ease-in-out;
 }
 .task-footer .delete-task:hover::after {
-    visibility: visible;
-    width: 100%;
+  visibility: visible;
+  width: 100%;
 }

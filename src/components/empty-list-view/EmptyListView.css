@@ -1,26 +1,26 @@
 .empty-list-container {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 .empty-list-container img {
-    width: 10%;
+  width: 10%;
 }
 .empty-list-message {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .empty-list-message h5 {
-    font-size: 1.125rem;
+  font-size: 1.125rem;
 }
-.empty-list-message p  {
-    font-size: 1rem;
-    margin-bottom: 1em;
+.empty-list-message p {
+  font-size: 1rem;
+  margin-bottom: 1em;
 }
 
 @media (max-width: 1000px) {
-    .empty-list-container img {
-        width: 20%;
-    }
+  .empty-list-container img {
+    width: 20%;
+  }
 }

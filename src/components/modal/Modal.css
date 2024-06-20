@@ -12,7 +12,6 @@
   z-index: 1000;
   opacity: 0;
   visibility: hidden;
-  
 }
 
 .modal-wrapper.show {
@@ -25,10 +24,9 @@
   visibility: hidden;
 }
 .modal-card {
-    background-color: #ffffff;
-    padding: 2em;
-    border:0;
-    border-radius: 13px;
-    box-shadow: 1px 1px 10px 1px rgb(71, 69, 69);
+  background-color: #ffffff;
+  padding: 2em;
+  border: 0;
+  border-radius: 13px;
+  box-shadow: 1px 1px 10px 1px rgb(71, 69, 69);
 }
-

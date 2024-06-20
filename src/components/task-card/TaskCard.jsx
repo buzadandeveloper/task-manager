@@ -1,25 +1,34 @@
 import React, { useState } from "react";
-import "./TaskCard.css"
-import Badge from "../badget/Badge"
+import "./TaskCard.css";
+import Badge from "../badget/Badge";
 import DueDate from "../date-container/DueDate";
-export default function TaskCard({id, status, name, taskDetails, dueDate, openTaskInfo}){
-    const handleOpenTaskInfo = () => {
-        openTaskInfo({id, status, name, taskDetails, dueDate});
-    }
-    
-    return (
-        <div className="card-wrapper">
-            <div className="card-header">
-                <p className="task-id">{id}</p>
-                <Badge status={status}/>
-            </div>
-            <div className="card-content">
-                <p>{name}</p>
-            </div>
-            <div className="card-footer">
-                <button className="open-task-btn" onClick={handleOpenTaskInfo}>Open Task</button>
-                <DueDate dueDate={dueDate}/>
-            </div>
-        </div>
-    );    
+export default function TaskCard({
+  id,
+  status,
+  name,
+  taskDetails,
+  dueDate,
+  openTaskInfo,
+}) {
+  const handleOpenTaskInfo = () => {
+    openTaskInfo({ id, status, name, taskDetails, dueDate });
+  };
+
+  return (
+    <div className="card-wrapper">
+      <div className="card-header">
+        <p className="task-id">{id}</p>
+        <Badge status={status} />
+      </div>
+      <div className="card-content">
+        <p>{name}</p>
+      </div>
+      <div className="card-footer">
+        <button className="open-task-btn" onClick={handleOpenTaskInfo}>
+          Open Task
+        </button>
+        <DueDate dueDate={dueDate} />
+      </div>
+    </div>
+  );
 }

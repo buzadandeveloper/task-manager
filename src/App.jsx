@@ -26,7 +26,7 @@ const data = [
 ];
 
 export default function App() {
-  const [taskList, setTaskList] = useState([]);
+  const [taskList, setTaskList] = useState(data);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isTaskViewOpen, setIsTaskViewOpen] = useState(false);
   const [selectedTask, setSelectedTask] = useState(null);
@@ -59,8 +59,8 @@ export default function App() {
     const newTaskList = taskList.filter((li) => li.id !== id);
     setTaskList(newTaskList);
     setIsTaskViewOpen(false);
-  }
-  
+  };
+
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
@@ -72,24 +72,23 @@ export default function App() {
     setIsTaskViewOpen(false);
     setIsTaskViewOpen(null);
   };
-  
 
   return (
     <>
       <div className="app-container">
         <div className="app-content">
           <TaskViewer
-           taskList={taskList}
-           openModal={openModal}
-           openTaskInfo={openTaskInfo}
-           isModalOpen={isModalOpen}
-           addNewTask={addNewTask}
-           closeModal={closeModal}
-           isTaskViewOpen={isTaskViewOpen}
-           closeTaskInfo={closeTaskInfo}
-           updateTaskStatus={updateTaskStatus}
-           selectedTask={selectedTask}
-           handleDeleteTask={handleDeleteTask}
+            taskList={taskList}
+            openModal={openModal}
+            openTaskInfo={openTaskInfo}
+            isModalOpen={isModalOpen}
+            addNewTask={addNewTask}
+            closeModal={closeModal}
+            isTaskViewOpen={isTaskViewOpen}
+            closeTaskInfo={closeTaskInfo}
+            updateTaskStatus={updateTaskStatus}
+            selectedTask={selectedTask}
+            handleDeleteTask={handleDeleteTask}
           />
         </div>
       </div>

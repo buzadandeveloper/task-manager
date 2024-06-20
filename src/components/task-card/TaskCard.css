@@ -38,7 +38,7 @@
   align-items: flex-end;
   justify-content: space-between;
 }
-.card-footer .open-task-btn{
+.card-footer .open-task-btn {
   border: 0;
   border-radius: 12px;
   padding: 4px 6px;
@@ -48,6 +48,6 @@
   color: #808080;
   font-weight: 600;
 }
-.card-footer .open-task-btn:hover{
+.card-footer .open-task-btn:hover {
   background-color: #e8e8e8;
 }

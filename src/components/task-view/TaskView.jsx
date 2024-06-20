@@ -9,7 +9,7 @@ const TaskView = ({
   closeModal,
   selectedTask,
   updateTaskStatus,
-  handleDeleteTask
+  handleDeleteTask,
 }) => {
   const { id, status, name, taskDetails, dueDate } = selectedTask;
 
@@ -41,8 +41,12 @@ const TaskView = ({
             </div>
           </div>
           <div className="task-footer">
-            
-            <button className="delete-task" onClick={() => handleDeleteTask(id)}>Delete</button>
+            <button
+              className="delete-task"
+              onClick={() => handleDeleteTask(id)}
+            >
+              Delete
+            </button>
             <DueDate dueDate={dueDate} />
           </div>
         </div>
