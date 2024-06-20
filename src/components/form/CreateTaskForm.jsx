@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./CreateTaskForm.css";
-import CloseButton from "../close-button/CloseButton";
+import CloseButton from "../CloseButton/CloseButton";
 
 const CreateTaskForm = ({ addNewTask, closeModal }) => {
   const [formData, setFormData] = useState({

@@ -1,11 +1,11 @@
 import React from "react";
 import "./TaskViewer.css";
-import TaskCard from "../task-card/TaskCard";
-import ControlPanel from "../control-panel/ControlPanel";
-import CreateTaskForm from "../form/CreateTaskForm";
-import Modal from "../modal/Modal";
-import TaskView from "../task-view/TaskView";
-import EmptyListView from "../empty-list-view/EmptyListView";
+import TaskCard from "../TaskCard/TaskCard";
+import ControlPanel from "../ControlPanel/ControlPanel";
+import CreateTaskForm from "../Form/CreateTaskForm";
+import Modal from "../Modal/Modal";
+import TaskView from "../TaskView/TaskView";
+import EmptyListView from "../EmptyListView/EmptyListView";
 
 function TaskViewer({
   taskList,

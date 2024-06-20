@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
-import TaskViewer from "./components/task-viewer/TaskViewer";
+import TaskViewer from "./components/TaskViewer/TaskViewer";
 const data = [
   {
     id: "T-1",

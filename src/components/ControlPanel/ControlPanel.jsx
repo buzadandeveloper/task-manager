@@ -1,6 +1,6 @@
 import React from "react";
-import "../control-panel/ControlPanel.css";
-import CreateButton from "../create-task-button/CreateButton";
+import "./ControlPanel.css";
+import CreateButton from "../CreateTaskButton/CreateButton";
 const ControlPanel = ({ openModal, taskList }) => {
   return (
     <div className="control-panel-container">

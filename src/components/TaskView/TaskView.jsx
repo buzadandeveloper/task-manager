@@ -1,8 +1,8 @@
 import React from "react";
 import "./TaskView.css";
-import CloseButton from "../close-button/CloseButton";
-import Badge from "../badget/Badge";
-import DueDate from "../date-container/DueDate";
+import CloseButton from "../CloseButton/CloseButton";
+import Badge from "../Badget/Badge";
+import DueDate from "../DateContainer/DueDate";
 
 const TaskView = ({
   openTaskInfo,
