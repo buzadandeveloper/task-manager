@@ -7,7 +7,6 @@ const FilterStatus = ({ setFilter, filteredLength }) => {
     setFilter(filter);
     setActiveFilter(filter);
   };
-//   console.log(filteredLenght("All Tasks"))
   return (
     <div className="filter-status-wrapper">
       <div className="filter-status-content">

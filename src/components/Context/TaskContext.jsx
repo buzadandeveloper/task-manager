@@ -1,32 +1,31 @@
 import React, { createContext, useState } from "react";
 
 const TaskContext = createContext();
+const data = [
+  {
+    id: "T-1",
+    status: "Completed",
+    name: "Create a Design System for Enum Workspace.",
+    taskDetails: "iasfioasnf saolfnasof  aosfaosf",
+    dueDate: new Date(2024, 4, 13),
+  },
+  {
+    id: "T-2",
+    status: "In Progress",
+    name: "Create a Design System for Enum Workspace.",
+    taskDetails: "iasfioasnf saolfnasof  aosfaosf",
+    dueDate: new Date(2024, 4, 13),
+  },
+  {
+    id: "T-3",
+    status: "To Do",
+    name: "Create a Design System for Enum Workspace.",
+    taskDetails: "iasfioasnf saolfnasof  aosfaosf",
+    dueDate: new Date(2024, 4, 14),
+  },
+];
 
 const TaskProvider = ({ children }) => {
-  const data = [
-    {
-      id: "T-1",
-      status: "Completed",
-      name: "Create a Design System for Enum Workspace.",
-      taskDetails: "iasfioasnf saolfnasof  aosfaosf",
-      dueDate: new Date(2024, 4, 13),
-    },
-    {
-      id: "T-2",
-      status: "In Progress",
-      name: "Create a Design System for Enum Workspace.",
-      taskDetails: "iasfioasnf saolfnasof  aosfaosf",
-      dueDate: new Date(2024, 4, 13),
-    },
-    {
-      id: "T-3",
-      status: "To Do",
-      name: "Create a Design System for Enum Workspace.",
-      taskDetails: "iasfioasnf saolfnasof  aosfaosf",
-      dueDate: new Date(2024, 4, 14),
-    },
-  ];
-
   const [taskList, setTaskList] = useState(data);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isTaskViewOpen, setIsTaskViewOpen] = useState(false);
@@ -81,7 +80,7 @@ const TaskProvider = ({ children }) => {
 
   const totalTasks = taskList.length;
 
-   const filteredLength = (filter) => {
+  const filteredLength = (filter) => {
     switch (filter) {
       case "To Do":
         return taskList.filter((task) => task.status === "To Do").length;
@@ -94,7 +93,7 @@ const TaskProvider = ({ children }) => {
         return totalTasks;
     }
   };
-  
+
   return (
     <TaskContext.Provider
       value={{
@@ -112,6 +111,7 @@ const TaskProvider = ({ children }) => {
         filteredTasks,
         setFilter,
         filteredLength,
+        filter,
       }}
     >
       {children}

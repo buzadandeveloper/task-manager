@@ -22,6 +22,7 @@ const TaskViewer = () => {
     selectedTask,
     handleDeleteTask,
     filteredTasks,
+    filter,
   } = useContext(TaskContext);
   return (
     <div className="task-view-container">
@@ -34,7 +35,7 @@ const TaskViewer = () => {
             ))
           ) : (
             <div className="empty-list-container">
-              <EmptyListView openModal={openModal} />
+              <EmptyListView openModal={openModal} filter={filter}/>
             </div>
           )}
           {isModalOpen && (
