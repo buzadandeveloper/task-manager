@@ -45,6 +45,10 @@ const TaskView = ({
     setIsEditing(true);
   };
 
+  const handleOnTouchStart = () => {
+    setIsEditing(true);
+  };
+
   const validateEditForm = () => {
     const newErrors = {};
     !editFormData.editableTaskName &&
@@ -86,7 +90,12 @@ const TaskView = ({
                   }
                 />
               ) : (
-                <h4 onDoubleClick={handleOnDoubleClick}>{name}</h4>
+                <h4
+                  onDoubleClick={handleOnDoubleClick}
+                  onTouchStart={handleOnTouchStart}
+                >
+                  {name}
+                </h4>
               )}
             </div>
             {errors.editableTaskName && (
@@ -107,7 +116,12 @@ const TaskView = ({
                   }
                 />
               ) : (
-                <p onDoubleClick={handleOnDoubleClick}>{taskDetails}</p>
+                <p
+                  onDoubleClick={handleOnDoubleClick}
+                  onTouchStart={handleOnTouchStart}
+                >
+                  {taskDetails}
+                </p>
               )}
             </div>
           </div>
@@ -127,7 +141,7 @@ const TaskView = ({
 
             {isEditing ? (
               <div className="edited-due-date">
-                <h2>Due Date:</h2>
+                <h2>Due Date</h2>
                 <input
                   type="date"
                   value={
