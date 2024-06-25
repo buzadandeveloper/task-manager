@@ -41,7 +41,6 @@ const CreateTaskForm = ({ addNewTask, closeModal }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     let newErrors = validateForm();
-
     if (Object.keys(newErrors).length === 0) {
       const newTask = {
         name: formData.taskName,
@@ -67,6 +66,7 @@ const CreateTaskForm = ({ addNewTask, closeModal }) => {
           <label className="label-md">Task Name</label>
           <input
             value={formData.taskName}
+            maxLength={42}
             name="taskName"
             onChange={handleInputData}
             className="input-primary"

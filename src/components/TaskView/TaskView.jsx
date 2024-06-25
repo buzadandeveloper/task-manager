@@ -19,20 +19,38 @@ const TaskView = ({
     editableTaskDueDate: dueDate,
   });
   const [isEditing, setIsEditing] = useState(false);
+  const [errors, setErrors] = useState({});
 
   const handleSaveChanges = () => {
-    const updateTask = {
-      ...selectedTask,
-      name: editFormData.editableTaskName,
-      taskDetails: editFormData.editableTaskDetails,
-      dueDate: editFormData.editableTaskDueDate,
-    };
-    updateTaskStatus(id, status, updateTask);
-    setIsEditing(false);
+    let newErrors = validateEditForm();
+    if (Object.keys(newErrors).length === 0) {
+      const updateTask = {
+        ...selectedTask,
+        name: editFormData.editableTaskName,
+        taskDetails: editFormData.editableTaskDetails,
+        dueDate: editFormData.editableTaskDueDate,
+      };
+      updateTaskStatus(id, status, updateTask);
+      setIsEditing(false);
+      setErrors((prevState) => ({
+        ...prevState,
+        editableTaskName: "",
+      }));
+    } else {
+      setErrors(newErrors);
+    }
   };
 
   const handleOnDoubleClick = () => {
     setIsEditing(true);
+  };
+
+  const validateEditForm = () => {
+    const newErrors = {};
+    !editFormData.editableTaskName &&
+      (newErrors.editableTaskName = "Task Name is required.");
+    console.log("Eroarea:", newErrors);
+    return newErrors;
   };
 
   return (
@@ -59,6 +77,7 @@ const TaskView = ({
                 <input
                   type="text"
                   value={editFormData.editableTaskName}
+                  maxLength={42}
                   onChange={(e) =>
                     setEditFormData({
                       ...editFormData,
@@ -70,11 +89,16 @@ const TaskView = ({
                 <h4 onDoubleClick={handleOnDoubleClick}>{name}</h4>
               )}
             </div>
+            {errors.editableTaskName && (
+              <span className="edit-name-error">{errors.editableTaskName}</span>
+            )}
             <div className="task-details">
               <h2>Task Details:</h2>
               {isEditing ? (
                 <textarea
                   value={editFormData.editableTaskDetails}
+                  cols={10}
+                  rows={5}
                   onChange={(e) =>
                     setEditFormData({
                       ...editFormData,
@@ -88,12 +112,19 @@ const TaskView = ({
             </div>
           </div>
           <div className="task-footer">
-            <button
-              className="delete-task"
-              onClick={() => handleDeleteTask(id)}
-            >
-              Delete
-            </button>
+            {isEditing ? (
+              <button className="save-btn" onClick={handleSaveChanges}>
+                Save
+              </button>
+            ) : (
+              <button
+                className="delete-task"
+                onClick={() => handleDeleteTask(id)}
+              >
+                Delete
+              </button>
+            )}
+
             {isEditing ? (
               <div className="edited-due-date">
                 <h2>Due Date:</h2>
@@ -111,10 +142,7 @@ const TaskView = ({
                 />
               </div>
             ) : (
-              <DueDate dueDate={dueDate}/>
-            )}
-            {isEditing && (
-              <button className="save-btn" onClick={handleSaveChanges}>Save</button>
+              <DueDate dueDate={dueDate} />
             )}
           </div>
         </div>
