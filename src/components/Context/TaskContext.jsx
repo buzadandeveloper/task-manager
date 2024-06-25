@@ -44,15 +44,18 @@ const TaskProvider = ({ children }) => {
     setIsModalOpen(false);
   };
 
-  const updateTaskStatus = (id, newStatus) => {
+  const updateTaskStatus = (id, newStatus, updateTask = null) => {
     setTaskList((prevTaskList) =>
       prevTaskList.map((task) =>
-        task.id === id ? { ...task, status: newStatus } : task
+        task.id === id
+          ? { ...task, status: newStatus, ...(updateTask || {}) }
+          : task
       )
     );
     setSelectedTask((prevTask) => ({
       ...prevTask,
       status: newStatus,
+      ...(updateTask || {}),
     }));
   };
 
