@@ -1,0 +1,30 @@
+.sign-up-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+   
+}
+.sign-up-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
+    
+}
+.sign-up-content h2 {   
+    text-align: center;
+    margin-bottom: 1em;
+    color: #3754db;
+}
+.sign-up-content input{
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    width: 250px;
+    margin-bottom: 8px;
+}
