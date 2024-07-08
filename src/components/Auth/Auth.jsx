@@ -1,14 +1,24 @@
-import React from "react";
-import "./Auth.css"
+import React, { useState } from "react";
+import "./Auth.css";
 import Signup from "./Signup/Signup";
 import Signin from "./Signin/Signin";
 
 const Auth = () => {
-    return (
-        <div className="auth-container">
-            <Signin/>
-        </div>
-    );
-}
+  const [authType, setAuthType] = useState(true);
+
+  const handleChangeAuth = () => {
+    authType ? setAuthType(false) : setAuthType(true);
+  };
+
+  return (
+    <div className="auth-container">
+      {authType ? (
+        <Signup handleChangeAuth={handleChangeAuth} />
+      ) : (
+        <Signin handleChangeAuth={handleChangeAuth} />
+      )}
+    </div>
+  );
+};
 
 export default Auth;

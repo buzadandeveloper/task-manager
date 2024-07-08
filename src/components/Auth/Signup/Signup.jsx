@@ -1,6 +1,6 @@
 import React from "react";
 import "./Signup.css";
-const Signup = () => {
+const Signup = ({handleChangeAuth}) => {
   return (
     <div className="sign-up-container">
       <form action="" className="sign-up-content">
@@ -15,8 +15,8 @@ const Signup = () => {
             placeholder="Confirm Password"
           />
         </div>
-        <button type="submit">Sign Up</button>
-        <span>Already have an account? Sign In</span>
+        <button type="submit" className="sign-up-btn">Sign Up</button>
+        <span onClick={handleChangeAuth}>Already have an account? Sign In</span>
       </form>
     </div>
   );

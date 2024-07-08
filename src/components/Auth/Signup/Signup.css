@@ -9,7 +9,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 400px;
+    width: 20%;
     padding: 20px;
     background-color: #fff;
     border-radius: 8px;
@@ -20,11 +20,35 @@
     text-align: center;
     margin-bottom: 1em;
     color: #3754db;
+    width: 100%;
 }
+.sign-up-content .inputs {
+    width: 100%;
+} 
 .sign-up-content input{
     display: flex;
     flex-direction: column;
     border-radius: 8px;
-    width: 250px;
+    width: 100%;
     margin-bottom: 8px;
+}
+.sign-up-btn {
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #3754db;
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.825rem;
+    width: 100%;
+}
+.sign-up-btn:hover {
+    background-color: rgba(49, 83, 235, 0.854);
+}
+.sign-up-content span {
+    cursor: pointer;
+    font-size: 0.975rem;
+}
+.sign-up-content span:hover {
+    color: #3754db;
 }
