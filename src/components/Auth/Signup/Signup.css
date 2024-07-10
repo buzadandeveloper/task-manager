@@ -9,7 +9,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 20%;
+    width: 350px;
     padding: 20px;
     background-color: #fff;
     border-radius: 8px;
@@ -23,6 +23,9 @@
     width: 100%;
 }
 .sign-up-content .inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4em;
     width: 100%;
 } 
 .sign-up-content input{
@@ -30,7 +33,7 @@
     flex-direction: column;
     border-radius: 8px;
     width: 100%;
-    margin-bottom: 8px;
+   
 }
 .sign-up-btn {
     padding: 10px;
@@ -45,10 +48,17 @@
 .sign-up-btn:hover {
     background-color: rgba(49, 83, 235, 0.854);
 }
-.sign-up-content span {
+.sign-up-content .alt-sign {
     cursor: pointer;
     font-size: 0.975rem;
 }
-.sign-up-content span:hover {
+.sign-up-content .alt-sign:hover {
     color: #3754db;
+}
+.error-input {
+    border-color: red;
+}
+.error {
+    color: red;
+    font-size: 0.900em;
 }
