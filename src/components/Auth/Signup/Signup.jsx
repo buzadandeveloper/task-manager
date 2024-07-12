@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Signup.css";
 const Signup = ({ handleChangeAuth }) => {
   const [authData, setAuthData] = useState({
@@ -14,8 +14,11 @@ const Signup = ({ handleChangeAuth }) => {
     const newErrors = {};
     !authData.name && (newErrors.name = "Name is required.");
     !authData.email && (newErrors.email = "Email is required.");
+    const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    (!emailRegex.test(authData.email)) && (newErrors.email = "Invalid email format");
     !authData.password && (newErrors.password = "Password is required.");
-    !authData.confirmPassword && (newErrors.confirmPassword = "Confirm password is required.");
+    !authData.confirmPassword &&
+      (newErrors.confirmPassword = "Confirm password is required.");
     authData.password !== authData.confirmPassword &&
       (newErrors.confirmPassword = "Password do not match.");
     return newErrors;
@@ -82,12 +85,23 @@ const Signup = ({ handleChangeAuth }) => {
             className={errors.confirmPassword && "error-input"}
             placeholder="Confirm Password"
           />
-          {errors.confirmPassword && <span className="error ">{errors.confirmPassword}</span>}
+          {errors.confirmPassword && (
+            <span className="error ">{errors.confirmPassword}</span>
+          )}
+        </div>
+        <div className="pass-validation">
+          <p className="lower-validation">At least one lowercase letter</p>
+          <p className="upper-validation">At least one uppercase letter</p>
+          <p className="number-validation">At least one number</p>
+          <p className="special-validation">At least one special charcter</p>
+          <p className="length-validation">At least 8 characters</p>
         </div>
         <button type="submit" className="sign-up-btn" onClick={handleSubmit}>
           Sign Up
         </button>
-        <span onClick={handleChangeAuth} className="alt-sign">Already have an account? Sign In</span>
+        <span onClick={handleChangeAuth} className="alt-sign">
+          Already have an account? Sign In
+        </span>
       </form>
     </div>
   );
