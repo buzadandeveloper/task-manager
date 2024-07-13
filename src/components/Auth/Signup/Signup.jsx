@@ -17,12 +17,14 @@ const Signup = ({ handleChangeAuth }) => {
     const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     (!emailRegex.test(authData.email)) && (newErrors.email = "Invalid email format");
     !authData.password && (newErrors.password = "Password is required.");
+    const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}$/;
+    (!passwordRegex.test(authData.password)) && (newErrors.password = false);
     !authData.confirmPassword &&
       (newErrors.confirmPassword = "Confirm password is required.");
     authData.password !== authData.confirmPassword &&
       (newErrors.confirmPassword = "Password do not match.");
     return newErrors;
-  };
+  };  
 
   const handleAuthData = (e) => {
     setAuthData((prevState) => ({
