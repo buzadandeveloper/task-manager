@@ -20,6 +20,7 @@ module.exports = {
     'react/prop-types': 'off', 
     'no-unused-vars': 'off',
     'no-useless-escape' : 'off',
+    'react-hooks/exhaustive-deps' : 'off',
     'react/no-unescaped-entities': 'off',
   },
 }

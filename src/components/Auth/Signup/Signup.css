@@ -62,3 +62,18 @@
     color: red;
     font-size: 0.900em;
 }
+.pass-validation {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    padding-left: 1em;
+    color: #989898;
+}
+.pass-validation p {
+    font-size: 0.875rem;
+}
+
+.valid {
+    color: green;
+}
