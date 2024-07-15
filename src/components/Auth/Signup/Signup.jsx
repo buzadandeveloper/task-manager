@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Signup.css";
 import { FaRegCheckCircle } from "react-icons/fa";
+import LoadingSpinner from "../../Utils/LoadingSpinner";
 const Signup = ({ handleChangeAuth }) => {
   const [authData, setAuthData] = useState({
     name: "",
@@ -11,6 +12,7 @@ const Signup = ({ handleChangeAuth }) => {
   });
 
   const [errors, setErrors] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const [passwordCriteria, setPasswordCriteria] = useState({
     hasLowerCase: false,
@@ -67,12 +69,12 @@ const Signup = ({ handleChangeAuth }) => {
     }));
   };
 
-  const handleSignUp = (e) => {
+  const handleSignUp = async (e) => {
     e.preventDefault();
     let newErrors = validateSignUp();
     if (Object.keys(newErrors).length === 0) {
       console.log(authData);
-      navigate("/taskviewer");
+      await LoadingSpinner(authData, setIsLoading, navigate);
     } else {
       setErrors(newErrors);
     }
@@ -139,9 +141,13 @@ const Signup = ({ handleChangeAuth }) => {
             <FaRegCheckCircle /> At least 8 characters
           </p>
         </div>
-        <button type="submit" className="sign-up-btn" onClick={handleSignUp}>
-          Sign Up
-        </button>
+        {isLoading ? (
+          <div className="spinner"></div>
+        ) : (
+          <button type="submit" className="sign-up-btn" onClick={handleSignUp}>
+            Sign Up
+          </button>
+        )}
         <span onClick={handleChangeAuth} className="alt-sign">
           Already have an account? Sign In
         </span>

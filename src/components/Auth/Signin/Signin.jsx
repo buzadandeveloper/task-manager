@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import LoadingSpinner from "../../Utils/LoadingSpinner";
 import "./Signin.css";
 
 const Signin = ({ handleChangeAuth }) => {
@@ -8,6 +9,7 @@ const Signin = ({ handleChangeAuth }) => {
     password: "",
   });
   const [errors, setErrors] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const validateSignIn = () => {
     const newErrors = {};
@@ -36,12 +38,12 @@ const Signin = ({ handleChangeAuth }) => {
     }));
   };
 
-  const handleSignIn = (e) => {
+  const handleSignIn = async (e) => {
     e.preventDefault();
     let newErrors = validateSignIn();
     if (Object.keys(newErrors).length === 0) {
       console.log(authData);
-      navigate("/taskviewer");
+      await LoadingSpinner(authData, setIsLoading, navigate);
     } else {
       setErrors(newErrors);
     }
@@ -69,10 +71,16 @@ const Signin = ({ handleChangeAuth }) => {
           />
           {errors.password && <span className="error">{errors.password}</span>}
         </div>
-        <button type="submit" className="sign-in-btn" onClick={handleSignIn}>
-          Sign In
-        </button>
-        <span className="alt-sign" onClick={handleChangeAuth}>Don't have an account? Sign up</span>
+        {isLoading ? (
+          <div className="spinner"></div>
+        ) : (
+          <button type="submit" className="sign-in-btn" onClick={handleSignIn}>
+            Sign In
+          </button>
+        )}
+        <span className="alt-sign" onClick={handleChangeAuth}>
+          Don't have an account? Sign up
+        </span>
       </form>
     </div>
   );
