@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Signup.css";
 import { FaRegCheckCircle } from "react-icons/fa";
 const Signup = ({ handleChangeAuth }) => {
@@ -10,6 +11,7 @@ const Signup = ({ handleChangeAuth }) => {
   });
 
   const [errors, setErrors] = useState({});
+  const navigate = useNavigate();
   const [passwordCriteria, setPasswordCriteria] = useState({
     hasLowerCase: false,
     hasUpperCase: false,
@@ -70,6 +72,7 @@ const Signup = ({ handleChangeAuth }) => {
     let newErrors = validateSignUp();
     if (Object.keys(newErrors).length === 0) {
       console.log(authData);
+      navigate("/taskviewer");
     } else {
       setErrors(newErrors);
     }

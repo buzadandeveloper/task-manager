@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Signin.css";
 
 const Signin = ({ handleChangeAuth }) => {
@@ -7,7 +8,7 @@ const Signin = ({ handleChangeAuth }) => {
     password: "",
   });
   const [errors, setErrors] = useState({});
-
+  const navigate = useNavigate();
   const validateSignIn = () => {
     const newErrors = {};
     const emailRegex =
@@ -40,6 +41,7 @@ const Signin = ({ handleChangeAuth }) => {
     let newErrors = validateSignIn();
     if (Object.keys(newErrors).length === 0) {
       console.log(authData);
+      navigate("/taskviewer");
     } else {
       setErrors(newErrors);
     }

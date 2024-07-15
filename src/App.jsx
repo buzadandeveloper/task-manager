@@ -14,10 +14,11 @@ export default function App() {
   return (
     <TaskProvider>
       <Router>
-            <Routes>
-              <Route path="/auth" element={<Auth />} />
-              <Route path="/tasks" element={<TaskViewer />} />
-            </Routes>
+        <Routes>
+          <Route exact path="/" element={<Auth />} />
+          <Route path="/auth" element={<Auth />} />
+          <Route path="/taskviewer" element={<TaskViewer />} />
+        </Routes>
       </Router>
     </TaskProvider>
   );
