@@ -34,7 +34,7 @@ const Signup = ({ handleChangeAuth }) => {
     });
   }, [authData.password]);
 
-  const validateAuth = () => {
+  const validateSignUp = () => {
     const newErrors = {};
     !authData.name && (newErrors.name = "Name is required.");
     !authData.email && (newErrors.email = "Email is required.");
@@ -63,12 +63,12 @@ const Signup = ({ handleChangeAuth }) => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSignUp = (e) => {
     e.preventDefault();
-    let newErrors = validateAuth();
+    let newErrors = validateSignUp();
     if (Object.keys(newErrors).length === 0) {
       console.log(authData);
-    } else {
+    } else {  
       setErrors(newErrors);
     }
   };
@@ -134,7 +134,7 @@ const Signup = ({ handleChangeAuth }) => {
             <FaRegCheckCircle /> At least 8 characters
           </p>
         </div>
-        <button type="submit" className="sign-up-btn" onClick={handleSubmit}>
+        <button type="submit" className="sign-up-btn" onClick={handleSignUp}>
           Sign Up
         </button>
         <span onClick={handleChangeAuth} className="alt-sign">

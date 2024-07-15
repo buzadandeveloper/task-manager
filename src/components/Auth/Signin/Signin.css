@@ -23,14 +23,16 @@
   width: 100%;
 }
 .sign-in-content .inputs {
-  width: 100%;
+  display: flex;
+    flex-direction: column;
+    gap: 0.4em;
+    width: 100%;
 } 
 .sign-in-content input{
   display: flex;
   flex-direction: column;
   border-radius: 8px;
   width: 100%;
-  margin-bottom: 8px;
 }
 .sign-in-btn {
   padding: 10px;
@@ -51,4 +53,8 @@
 }
 .sign-in-content span:hover {
   color: #3754db;
+}
+.error {
+  color: red;
+  font-size: 0.900em;
 }
