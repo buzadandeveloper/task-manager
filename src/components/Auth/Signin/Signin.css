@@ -3,7 +3,6 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
- 
 }
 .sign-in-content {
   display: flex;
@@ -14,9 +13,8 @@
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
-  
 }
-.sign-in-content h2 {   
+.sign-in-content h2 {
   text-align: center;
   margin-bottom: 1em;
   color: #3754db;
@@ -24,11 +22,11 @@
 }
 .sign-in-content .inputs {
   display: flex;
-    flex-direction: column;
-    gap: 0.4em;
-    width: 100%;
-} 
-.sign-in-content input{
+  flex-direction: column;
+  gap: 0.4em;
+  width: 100%;
+}
+.sign-in-content input {
   display: flex;
   flex-direction: column;
   border-radius: 8px;
@@ -51,10 +49,10 @@
   cursor: pointer;
   font-size: 0.975rem;
 }
-.sign-in-content span:hover {
+.sign-in-content .alt-sign:hover {
   color: #3754db;
 }
 .error {
   color: red;
-  font-size: 0.900em;
+  font-size: 0.9rem;
 }

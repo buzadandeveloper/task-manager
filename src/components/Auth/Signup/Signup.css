@@ -60,7 +60,7 @@
 }
 .error {
     color: red;
-    font-size: 0.900em;
+    font-size: 0.900rem;
 }
 .pass-validation {
     display: flex;

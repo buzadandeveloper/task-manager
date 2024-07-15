@@ -10,7 +10,15 @@ const Signin = ({ handleChangeAuth }) => {
 
   const validateSignIn = () => {
     const newErrors = {};
-    !authData.email && (newErrors.email = "Email is required.");
+    const emailRegex =
+      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+    if (!authData.email) {
+      newErrors.email = "Email is required.";
+    } else if (!emailRegex.test(authData.email)) {
+      newErrors.email = "Invalid email format.";
+    }
+
     !authData.password && (newErrors.password = "Password is required.");
 
     return newErrors;
@@ -62,7 +70,7 @@ const Signin = ({ handleChangeAuth }) => {
         <button type="submit" className="sign-in-btn" onClick={handleSignIn}>
           Sign In
         </button>
-        <span onClick={handleChangeAuth}>Don't have an account? Sign up</span>
+        <span className="alt-sign" onClick={handleChangeAuth}>Don't have an account? Sign up</span>
       </form>
     </div>
   );

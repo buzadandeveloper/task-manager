@@ -37,11 +37,13 @@ const Signup = ({ handleChangeAuth }) => {
   const validateSignUp = () => {
     const newErrors = {};
     !authData.name && (newErrors.name = "Name is required.");
-    !authData.email && (newErrors.email = "Email is required.");
     const emailRegex =
       /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    !emailRegex.test(authData.email) &&
-      (newErrors.email = "Invalid email format");
+    if (!authData.email) {
+      newErrors.email = "Email is required.";
+    } else if (!emailRegex.test(authData.email)) {
+      newErrors.email = "Invalid email format";
+    }
     const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}$/;
     !passwordRegex.test(authData.password) &&
       (newErrors.password = "Password is required according to the criterion.");
@@ -68,7 +70,7 @@ const Signup = ({ handleChangeAuth }) => {
     let newErrors = validateSignUp();
     if (Object.keys(newErrors).length === 0) {
       console.log(authData);
-    } else {  
+    } else {
       setErrors(newErrors);
     }
   };
