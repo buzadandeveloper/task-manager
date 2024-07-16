@@ -1,53 +1,53 @@
-import React, { useState } from "react"
-import { useNavigate } from "react-router-dom"
-import LoadingSpinner from "../../Utils/LoadingSpinner"
-import "./Signin.css"
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import LoadingSpinner from "../../Utils/LoadingSpinner";
+import "./Signin.css";
 
 const Signin = ({ handleChangeAuth }) => {
   const [authData, setAuthData] = useState({
     email: "",
     password: ""
-  })
-  const [errors, setErrors] = useState({})
-  const [isLoading, setIsLoading] = useState(false)
-  const navigate = useNavigate()
+  });
+  const [errors, setErrors] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
   const validateSignIn = () => {
-    const newErrors = {}
+    const newErrors = {};
     const emailRegex =
-      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
     if (!authData.email) {
-      newErrors.email = "Email is required."
+      newErrors.email = "Email is required.";
     } else if (!emailRegex.test(authData.email)) {
-      newErrors.email = "Invalid email format."
+      newErrors.email = "Invalid email format.";
     }
 
-    !authData.password && (newErrors.password = "Password is required.")
+    !authData.password && (newErrors.password = "Password is required.");
 
-    return newErrors
-  }
+    return newErrors;
+  };
 
   const hadnleAuthData = e => {
     setAuthData(prevState => ({
       ...prevState,
       [e.target.name]: e.target.value
-    }))
+    }));
     setErrors(prevState => ({
       ...prevState,
       [e.target.name]: ""
-    }))
-  }
+    }));
+  };
 
   const handleSignIn = async e => {
-    e.preventDefault()
-    let newErrors = validateSignIn()
+    e.preventDefault();
+    let newErrors = validateSignIn();
     if (Object.keys(newErrors).length === 0) {
-      console.log(authData)
-      await LoadingSpinner(authData, setIsLoading, navigate)
+      console.log(authData);
+      await LoadingSpinner(authData, setIsLoading, navigate);
     } else {
-      setErrors(newErrors)
+      setErrors(newErrors);
     }
-  }
+  };
 
   return (
     <div className="sign-in-container">
@@ -83,7 +83,7 @@ const Signin = ({ handleChangeAuth }) => {
         </span>
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default Signin
+export default Signin;

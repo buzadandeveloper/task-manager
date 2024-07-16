@@ -9,14 +9,14 @@ const TaskView = ({
   closeModal,
   selectedTask,
   updateTaskStatus,
-  handleDeleteTask,
+  handleDeleteTask
 }) => {
   const { id, status, name, taskDetails, dueDate } = selectedTask;
 
   const [editFormData, setEditFormData] = useState({
     editableTaskName: name,
     editableTaskDetails: taskDetails,
-    editableTaskDueDate: dueDate,
+    editableTaskDueDate: dueDate
   });
   const [isEditing, setIsEditing] = useState(false);
   const [errors, setErrors] = useState({});
@@ -28,13 +28,13 @@ const TaskView = ({
         ...selectedTask,
         name: editFormData.editableTaskName,
         taskDetails: editFormData.editableTaskDetails,
-        dueDate: editFormData.editableTaskDueDate,
+        dueDate: editFormData.editableTaskDueDate
       };
       updateTaskStatus(id, status, updateTask);
       setIsEditing(false);
-      setErrors((prevState) => ({
+      setErrors(prevState => ({
         ...prevState,
-        editableTaskName: "",
+        editableTaskName: ""
       }));
     } else {
       setErrors(newErrors);
@@ -82,10 +82,10 @@ const TaskView = ({
                   type="text"
                   value={editFormData.editableTaskName}
                   maxLength={42}
-                  onChange={(e) =>
+                  onChange={e =>
                     setEditFormData({
                       ...editFormData,
-                      editableTaskName: e.target.value,
+                      editableTaskName: e.target.value
                     })
                   }
                 />
@@ -108,10 +108,10 @@ const TaskView = ({
                   value={editFormData.editableTaskDetails}
                   cols={10}
                   rows={5}
-                  onChange={(e) =>
+                  onChange={e =>
                     setEditFormData({
                       ...editFormData,
-                      editableTaskDetails: e.target.value,
+                      editableTaskDetails: e.target.value
                     })
                   }
                 />
@@ -147,10 +147,10 @@ const TaskView = ({
                   value={
                     editFormData.editableTaskDueDate.toISOString().split("T")[0]
                   }
-                  onChange={(e) =>
+                  onChange={e =>
                     setEditFormData({
                       ...editFormData,
-                      editableTaskDueDate: new Date(e.target.value),
+                      editableTaskDueDate: new Date(e.target.value)
                     })
                   }
                 />

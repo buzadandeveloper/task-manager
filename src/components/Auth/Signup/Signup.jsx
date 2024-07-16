@@ -1,32 +1,32 @@
-import React, { useState, useEffect } from "react"
-import { useNavigate } from "react-router-dom"
-import "./Signup.css"
-import { FaRegCheckCircle } from "react-icons/fa"
-import LoadingSpinner from "../../Utils/LoadingSpinner"
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import "./Signup.css";
+import { FaRegCheckCircle } from "react-icons/fa";
+import LoadingSpinner from "../../Utils/LoadingSpinner";
 const Signup = ({ handleChangeAuth }) => {
   const [authData, setAuthData] = useState({
     name: "",
     email: "",
     password: "",
     confirmPassword: ""
-  })
+  });
 
-  const [errors, setErrors] = useState({})
-  const [isLoading, setIsLoading] = useState(false)
-  const navigate = useNavigate()
+  const [errors, setErrors] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
   const [passwordCriteria, setPasswordCriteria] = useState({
     hasLowerCase: false,
     hasUpperCase: false,
     hasNumber: false,
     hasSpecialChar: false,
     hasMinLength: false
-  })
+  });
 
-  const lowerCaseRegex = /[a-z]/
-  const upperCaseRegex = /[A-Z]/
-  const numberRegex = /[0-9]/
-  const specialCharRegex = /[.!@#$%^&*]/
-  const minLengthRegex = /.{8,}/
+  const lowerCaseRegex = /[a-z]/;
+  const upperCaseRegex = /[A-Z]/;
+  const numberRegex = /[0-9]/;
+  const specialCharRegex = /[.!@#$%^&*]/;
+  const minLengthRegex = /.{8,}/;
 
   useEffect(() => {
     setPasswordCriteria({
@@ -35,50 +35,50 @@ const Signup = ({ handleChangeAuth }) => {
       hasNumber: numberRegex.test(authData.password),
       hasSpecialChar: specialCharRegex.test(authData.password),
       hasMinLength: minLengthRegex.test(authData.password)
-    })
-  }, [authData.password])
+    });
+  }, [authData.password]);
 
   const validateSignUp = () => {
-    const newErrors = {}
-    !authData.name && (newErrors.name = "Name is required.")
+    const newErrors = {};
+    !authData.name && (newErrors.name = "Name is required.");
     const emailRegex =
-      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (!authData.email) {
-      newErrors.email = "Email is required."
+      newErrors.email = "Email is required.";
     } else if (!emailRegex.test(authData.email)) {
-      newErrors.email = "Invalid email format"
+      newErrors.email = "Invalid email format";
     }
-    const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}$/
+    const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}$/;
     !passwordRegex.test(authData.password) &&
-      (newErrors.password = "Password is required according to the criterion.")
+      (newErrors.password = "Password is required according to the criterion.");
     !authData.confirmPassword &&
-      (newErrors.confirmPassword = "Confirm password is required.")
+      (newErrors.confirmPassword = "Confirm password is required.");
     authData.password !== authData.confirmPassword &&
-      (newErrors.confirmPassword = "Password do not match.")
-    return newErrors
-  }
+      (newErrors.confirmPassword = "Password do not match.");
+    return newErrors;
+  };
 
   const handleAuthData = e => {
     setAuthData(prevState => ({
       ...prevState,
       [e.target.name]: e.target.value
-    }))
+    }));
     setErrors(prevState => ({
       ...prevState,
       [e.target.name]: ""
-    }))
-  }
+    }));
+  };
 
   const handleSignUp = async e => {
-    e.preventDefault()
-    let newErrors = validateSignUp()
+    e.preventDefault();
+    let newErrors = validateSignUp();
     if (Object.keys(newErrors).length === 0) {
-      console.log(authData)
-      await LoadingSpinner(authData, setIsLoading, navigate)
+      console.log(authData);
+      await LoadingSpinner(authData, setIsLoading, navigate);
     } else {
-      setErrors(newErrors)
+      setErrors(newErrors);
     }
-  }
+  };
 
   return (
     <div className="sign-up-container">
@@ -153,7 +153,7 @@ const Signup = ({ handleChangeAuth }) => {
         </span>
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default Signup
+export default Signup;

@@ -4,7 +4,8 @@ import CreateButton from "../CreateTaskButton/CreateButton";
 import FilterStatus from "../FilterStatus/FilterStatus";
 import { TaskContext } from "../Context/TaskContext";
 const ControlPanel = () => {
-  const { openModal, taskList, setFilter, filteredLength } = useContext(TaskContext);
+  const { openModal, taskList, setFilter, filteredLength } =
+    useContext(TaskContext);
 
   return (
     <div className="control-panel-wrapper">
@@ -13,7 +14,7 @@ const ControlPanel = () => {
           <h3>Task Manager</h3>
           {taskList.length > 0 && <CreateButton openModal={openModal} />}
         </div>
-        <FilterStatus setFilter={setFilter} filteredLength={filteredLength}/>
+        <FilterStatus setFilter={setFilter} filteredLength={filteredLength} />
       </div>
     </div>
   );

@@ -3,7 +3,7 @@ import "./FilterStatus.css";
 const FilterStatus = ({ setFilter, filteredLength }) => {
   const filterItems = ["All Tasks", "To Do", "In Progress", "Completed"];
   const [activeFilter, setActiveFilter] = useState("All Tasks");
-  const handleFilter = (filter) => {
+  const handleFilter = filter => {
     setFilter(filter);
     setActiveFilter(filter);
   };
@@ -12,7 +12,11 @@ const FilterStatus = ({ setFilter, filteredLength }) => {
       <div className="filter-status-content">
         <ul className="filter-items">
           {filterItems.map((item, index) => (
-            <li key={index} onClick={() => handleFilter(item)} className={`${activeFilter === item ? 'active' : ""}`}>
+            <li
+              key={index}
+              onClick={() => handleFilter(item)}
+              className={`${activeFilter === item ? "active" : ""}`}
+            >
               {item} {filteredLength(item)}
             </li>
           ))}

@@ -5,13 +5,13 @@ function Badge({ status, taskId, openTaskInfo, updateTaskStatus }) {
   const statusTask = ["To Do", "In Progress", "Completed"];
 
   const toggleDropDown = () => openTaskInfo && setShowDropDown(!showDropDown);
-  const handleStatusChange = (newStatus) => {
+  const handleStatusChange = newStatus => {
     updateTaskStatus(taskId, newStatus);
     setShowDropDown(false);
   };
 
-  const getStatusClass = (status) => {
-    switch(status){
+  const getStatusClass = status => {
+    switch (status) {
       case "To Do":
         return "to-do";
       case "In Progress":
@@ -21,7 +21,7 @@ function Badge({ status, taskId, openTaskInfo, updateTaskStatus }) {
       default:
         return "";
     }
-  }
+  };
 
   return (
     <div className="badge-container">
@@ -31,17 +31,17 @@ function Badge({ status, taskId, openTaskInfo, updateTaskStatus }) {
       >
         <p>{status}</p>
       </div>
-        <div className={`dropdown-menu ${showDropDown && "show"}`}>
-          {statusTask.map((statusOption) => (
-            <div
-              className={`dropdown-item ${getStatusClass(statusOption)}`}
-              key={statusOption}
-              onClick={() => handleStatusChange(statusOption)}
-            >
-              {statusOption}
-            </div>
-          ))}
-        </div>
+      <div className={`dropdown-menu ${showDropDown && "show"}`}>
+        {statusTask.map(statusOption => (
+          <div
+            className={`dropdown-item ${getStatusClass(statusOption)}`}
+            key={statusOption}
+            onClick={() => handleStatusChange(statusOption)}
+          >
+            {statusOption}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

@@ -8,7 +8,7 @@ export default function TaskCard({
   name,
   taskDetails,
   dueDate,
-  openTaskInfo,
+  openTaskInfo
 }) {
   const handleOpenTaskInfo = () => {
     openTaskInfo({ id, status, name, taskDetails, dueDate });

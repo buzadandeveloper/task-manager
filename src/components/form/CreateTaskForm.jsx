@@ -6,19 +6,19 @@ const CreateTaskForm = ({ addNewTask, closeModal }) => {
   const [formData, setFormData] = useState({
     taskName: "",
     taskDate: "",
-    taskDetails: "",
+    taskDetails: ""
   });
 
   const [errors, setErrors] = useState({});
-  const handleInputData = (e) => {
-    setFormData((prevState) => ({
+  const handleInputData = e => {
+    setFormData(prevState => ({
       ...prevState,
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.value
     }));
 
-    setErrors((prevState) => ({
+    setErrors(prevState => ({
       ...prevState,
-      [e.target.name]: "",
+      [e.target.name]: ""
     }));
   };
 
@@ -26,7 +26,7 @@ const CreateTaskForm = ({ addNewTask, closeModal }) => {
     setFormData({
       taskName: "",
       taskDate: "",
-      taskDetails: "",
+      taskDetails: ""
     });
   };
 
@@ -38,7 +38,7 @@ const CreateTaskForm = ({ addNewTask, closeModal }) => {
     return newErrors;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
     let newErrors = validateForm();
     if (Object.keys(newErrors).length === 0) {
@@ -46,7 +46,7 @@ const CreateTaskForm = ({ addNewTask, closeModal }) => {
         name: formData.taskName,
         dueDate: formData.taskDate,
         taskDetails: formData.taskDetails,
-        status: "To Do",
+        status: "To Do"
       };
       addNewTask(newTask);
       resetForm();
