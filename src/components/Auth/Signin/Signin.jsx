@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import LoadingSpinner from "../../Utils/LoadingSpinner";
 import "./Signin.css";
+import { checkAuthDataLocalStorage } from "../../Utils/AuthUtils";
 
 const Signin = ({ handleChangeAuth }) => {
   const [authData, setAuthData] = useState({
@@ -42,8 +43,12 @@ const Signin = ({ handleChangeAuth }) => {
     e.preventDefault();
     let newErrors = validateSignIn();
     if (Object.keys(newErrors).length === 0) {
-      console.log(authData);
-      await LoadingSpinner(authData, setIsLoading, navigate);
+      const { success, message } = checkAuthDataLocalStorage(authData);
+      if (success) {
+        await LoadingSpinner(authData, setIsLoading, navigate);
+      } else {
+        setErrors({ general: message });
+      }
     } else {
       setErrors(newErrors);
     }
@@ -70,6 +75,7 @@ const Signin = ({ handleChangeAuth }) => {
             placeholder="Password"
           />
           {errors.password && <span className="error">{errors.password}</span>}
+          {errors.general && <span className="error">{errors.general}</span>}
         </div>
         {isLoading ? (
           <div className="spinner"></div>

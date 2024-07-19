@@ -3,6 +3,10 @@ import { useNavigate } from "react-router-dom";
 import "./Signup.css";
 import { FaRegCheckCircle } from "react-icons/fa";
 import LoadingSpinner from "../../Utils/LoadingSpinner";
+import {
+  saveAuthDataLocalStorage,
+  isEmailRegistered
+} from "../../Utils/AuthUtils";
 const Signup = ({ handleChangeAuth }) => {
   const [authData, setAuthData] = useState({
     name: "",
@@ -47,6 +51,8 @@ const Signup = ({ handleChangeAuth }) => {
       newErrors.email = "Email is required.";
     } else if (!emailRegex.test(authData.email)) {
       newErrors.email = "Invalid email format";
+    } else if (isEmailRegistered(authData.email)) {
+      newErrors.email = "Email is already registered.";
     }
     const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}$/;
     !passwordRegex.test(authData.password) &&
@@ -74,6 +80,7 @@ const Signup = ({ handleChangeAuth }) => {
     let newErrors = validateSignUp();
     if (Object.keys(newErrors).length === 0) {
       console.log(authData);
+      saveAuthDataLocalStorage(authData);
       await LoadingSpinner(authData, setIsLoading, navigate);
     } else {
       setErrors(newErrors);
@@ -113,7 +120,7 @@ const Signup = ({ handleChangeAuth }) => {
           />
           {errors.password && <span className="error">{errors.password}</span>}
           <input
-            value={authData.confirmPasword}
+            value={authData.confirmPassword}
             type="password"
             name="confirmPassword"
             onChange={handleAuthData}
@@ -125,19 +132,19 @@ const Signup = ({ handleChangeAuth }) => {
           )}
         </div>
         <div className="pass-validation">
-          <p className={passwordCriteria.hasLowerCase && "valid"}>
+          <p className={passwordCriteria.hasLowerCase ? "valid" : ""}>
             <FaRegCheckCircle /> At least one lowercase letter
           </p>
-          <p className={passwordCriteria.hasUpperCase && "valid"}>
+          <p className={passwordCriteria.hasUpperCase ? "valid" : ""}>
             <FaRegCheckCircle /> At least one uppercase letter
           </p>
-          <p className={passwordCriteria.hasNumber && "valid"}>
+          <p className={passwordCriteria.hasNumber ? "valid" : ""}>
             <FaRegCheckCircle /> At least one number
           </p>
-          <p className={passwordCriteria.hasSpecialChar && "valid"}>
+          <p className={passwordCriteria.hasSpecialChar ? "valid" : ""}>
             <FaRegCheckCircle /> At least one special charcter
           </p>
-          <p className={passwordCriteria.hasMinLength && "valid"}>
+          <p className={passwordCriteria.hasMinLength ? "valid" : ""}>
             <FaRegCheckCircle /> At least 8 characters
           </p>
         </div>
