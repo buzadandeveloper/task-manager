@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../Context/AuthContext";
 import "./Signup.css";
 import { FaRegCheckCircle } from "react-icons/fa";
 import LoadingSpinner from "../../Utils/LoadingSpinner";
@@ -7,6 +8,7 @@ import {
   saveAuthDataLocalStorage,
   isEmailRegistered
 } from "../../Utils/AuthUtils";
+
 const Signup = ({ handleChangeAuth }) => {
   const [authData, setAuthData] = useState({
     name: "",
@@ -18,6 +20,8 @@ const Signup = ({ handleChangeAuth }) => {
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+  const { login } = useAuth();  
+
   const [passwordCriteria, setPasswordCriteria] = useState({
     hasLowerCase: false,
     hasUpperCase: false,
@@ -81,6 +85,7 @@ const Signup = ({ handleChangeAuth }) => {
     if (Object.keys(newErrors).length === 0) {
       console.log(authData);
       saveAuthDataLocalStorage(authData);
+      login(authData.email);
       await LoadingSpinner(authData, setIsLoading, navigate);
     } else {
       setErrors(newErrors);

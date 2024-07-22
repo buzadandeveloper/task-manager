@@ -1,7 +1,7 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
 
 const TaskContext = createContext();
-const data = [
+const tasks = [
   {
     id: "T-1",
     status: "Completed",
@@ -26,11 +26,13 @@ const data = [
 ];
 
 const TaskProvider = ({ children }) => {
-  const [taskList, setTaskList] = useState(data);
+
+  const [taskList, setTaskList] = useState(tasks);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isTaskViewOpen, setIsTaskViewOpen] = useState(false);
   const [selectedTask, setSelectedTask] = useState(null);
   const [filter, setFilter] = useState("All Tasks");
+
 
   const addNewTask = newTask => {
     setTaskList(prevState => [

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../Context/AuthContext";
 import LoadingSpinner from "../../Utils/LoadingSpinner";
 import "./Signin.css";
 import { checkAuthDataLocalStorage } from "../../Utils/AuthUtils";
@@ -12,6 +13,7 @@ const Signin = ({ handleChangeAuth }) => {
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+  const {login} = useAuth();
   const validateSignIn = () => {
     const newErrors = {};
     const emailRegex =
@@ -45,6 +47,7 @@ const Signin = ({ handleChangeAuth }) => {
     if (Object.keys(newErrors).length === 0) {
       const { success, message } = checkAuthDataLocalStorage(authData);
       if (success) {
+        login(authData.email);
         await LoadingSpinner(authData, setIsLoading, navigate);
       } else {
         setErrors({ general: message });

@@ -9,17 +9,30 @@ import {
   Navigate
 } from "react-router-dom";
 import Auth from "./components/Auth/Auth";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
+import { AuthProvider } from "./components/Context/AuthContext";
 
 export default function App() {
   return (
+    <AuthProvider>
     <TaskProvider>
       <Router>
         <Routes>
-          <Route exact path="/" element={<Auth />} />
+          {/* <Route exact path="/" element={<Auth />} /> */}
           <Route path="/auth" element={<Auth />} />
-          <Route path="/taskviewer" element={<TaskViewer />} />
+          <Route
+            path="/taskviewer"
+            element={
+              <ProtectedRoute>
+                <TaskViewer />
+              </ProtectedRoute>
+            }
+          />
+          <Route path="*" element={<Navigate to="/auth" />} />
+          {/* <Route path="/taskviewer" element={<TaskViewer />} /> */}
         </Routes>
       </Router>
     </TaskProvider>
+    </AuthProvider>
   );
 }
