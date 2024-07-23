@@ -18,7 +18,6 @@ export default function App() {
     <TaskProvider>
       <Router>
         <Routes>
-          {/* <Route exact path="/" element={<Auth />} /> */}
           <Route path="/auth" element={<Auth />} />
           <Route
             path="/taskviewer"
@@ -29,7 +28,6 @@ export default function App() {
             }
           />
           <Route path="*" element={<Navigate to="/auth" />} />
-          {/* <Route path="/taskviewer" element={<TaskViewer />} /> */}
         </Routes>
       </Router>
     </TaskProvider>

@@ -13,7 +13,7 @@ const Signin = ({ handleChangeAuth }) => {
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
-  const {login} = useAuth();
+  const { login } = useAuth();
   const validateSignIn = () => {
     const newErrors = {};
     const emailRegex =
@@ -37,7 +37,8 @@ const Signin = ({ handleChangeAuth }) => {
     }));
     setErrors(prevState => ({
       ...prevState,
-      [e.target.name]: ""
+      [e.target.name]: "",
+      general: ""
     }));
   };
 

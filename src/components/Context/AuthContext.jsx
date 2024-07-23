@@ -3,14 +3,11 @@ import React, { useState, useEffect, createContext, useContext } from "react";
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(
+    !!localStorage.getItem("loggedInUser")
+  );
 
-  useEffect(() => {
-    const loggedInUser = localStorage.getItem("loggedInUser");
-    setIsAuthenticated(!!loggedInUser);
-  }, []);
-
-  const login = (email) => {
+  const login = email => {
     localStorage.setItem("loggedInUser", email);
     setIsAuthenticated(true);
   };
