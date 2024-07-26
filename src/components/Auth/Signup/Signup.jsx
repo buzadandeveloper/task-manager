@@ -20,7 +20,7 @@ const Signup = ({ handleChangeAuth }) => {
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
-  const { login } = useAuth();  
+  const { login } = useAuth();
 
   const [passwordCriteria, setPasswordCriteria] = useState({
     hasLowerCase: false,

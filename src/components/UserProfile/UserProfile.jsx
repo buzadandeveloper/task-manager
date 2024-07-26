@@ -9,9 +9,9 @@ const UserProfile = () => {
   return (
     <div className="main-container-up">
       <div className="edit-up">
-          <button>Edit</button>
-          <button onClick={logout}>Log Out</button>
-        </div>
+        <button>Edit</button>
+        <button onClick={logout}>Log Out</button>
+      </div>
       <div className="content-up">
         <div className="up-img">
           <img src={image} alt="" />
@@ -20,7 +20,7 @@ const UserProfile = () => {
           <p className="name">Buza Dan</p>
           <p className="email">buzadanfx@gmail.com</p>
         </div>
-        <Calendar/>
+        <Calendar />
       </div>
     </div>
   );

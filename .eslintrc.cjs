@@ -9,7 +9,7 @@ module.exports = {
     "plugin:react-hooks/recommended",
     "plugin:jsx-a11y/recommended",
     "prettier",
-    "plugin:prettier/recommended",
+    "plugin:prettier/recommended"
   ],
   ignorePatterns: ["dist", ".eslintrc.cjs"],
   parserOptions: { ecmaVersion: "latest", sourceType: "module" },
@@ -22,12 +22,12 @@ module.exports = {
     "react/jsx-no-target-blank": "off",
     "react-refresh/only-export-components": [
       "warn",
-      { allowConstantExport: true },
+      { allowConstantExport: true }
     ],
     "react/prop-types": "off",
     "no-unused-vars": "off",
     "no-useless-escape": "off",
     "react-hooks/exhaustive-deps": "off",
-    "react/no-unescaped-entities": "off",
-  },
+    "react/no-unescaped-entities": "off"
+  }
 };

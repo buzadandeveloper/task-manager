@@ -19,7 +19,7 @@ const TaskViewer = () => {
     closeModal,
     isTaskViewOpen,
     closeTaskInfo,
-    updateTaskStatus, 
+    updateTaskStatus,
     selectedTask,
     handleDeleteTask,
     filteredTasks,
@@ -27,7 +27,7 @@ const TaskViewer = () => {
   } = useContext(TaskContext);
   return (
     <div className="main-task-container">
-      <UserProfile/>
+      <UserProfile />
       <div className="task-content">
         <div className="task-view-container">
           <div className="task-list-container">

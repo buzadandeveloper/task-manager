@@ -26,13 +26,11 @@ const tasks = [
 ];
 
 const TaskProvider = ({ children }) => {
-
   const [taskList, setTaskList] = useState(tasks);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isTaskViewOpen, setIsTaskViewOpen] = useState(false);
   const [selectedTask, setSelectedTask] = useState(null);
   const [filter, setFilter] = useState("All Tasks");
-
 
   const addNewTask = newTask => {
     setTaskList(prevState => [

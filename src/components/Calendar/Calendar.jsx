@@ -5,22 +5,25 @@ import { DateCalendar } from "@mui/x-date-pickers/DateCalendar";
 const Calendar = () => {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <DateCalendar sx={{
-        margin: '1em',
-        '& .MuiPickersCalendarHeader-root' : {
-            backgroundColor: '#3754DB',
-            borderRadius: '12px',
-            color: 'white'
-        },
-        '& .MuiSvgIcon-root' : {
-            color: 'white'
-        },
-        '& .css-23p0if-MuiButtonBase-root-MuiPickersDay-root:not(.Mui-selected)' : {
+      <DateCalendar
+        sx={{
+          margin: "1em",
+          "& .MuiPickersCalendarHeader-root": {
             backgroundColor: "#3754DB",
-            border: 'none',
-            color: 'white'
-        }
-      }}/>
+            borderRadius: "12px",
+            color: "white"
+          },
+          "& .MuiSvgIcon-root": {
+            color: "white"
+          },
+          "& .css-23p0if-MuiButtonBase-root-MuiPickersDay-root:not(.Mui-selected)":
+            {
+              backgroundColor: "#3754DB",
+              border: "none",
+              color: "white"
+            }
+        }}
+      />
     </LocalizationProvider>
   );
 };

@@ -15,22 +15,22 @@ import { AuthProvider } from "./components/Context/AuthContext";
 export default function App() {
   return (
     <AuthProvider>
-    <TaskProvider>
-      <Router>
-        <Routes>
-          <Route path="/auth" element={<Auth />} />
-          <Route
-            path="/taskviewer"
-            element={
-              <ProtectedRoute>
-                <TaskViewer />
-              </ProtectedRoute>
-            }
-          />
-          <Route path="*" element={<Navigate to="/auth" />} />
-        </Routes>
-      </Router>
-    </TaskProvider>
+      <TaskProvider>
+        <Router>
+          <Routes>
+            <Route path="/auth" element={<Auth />} />
+            <Route
+              path="/taskviewer"
+              element={
+                <ProtectedRoute>
+                  <TaskViewer />
+                </ProtectedRoute>
+              }
+            />
+            <Route path="*" element={<Navigate to="/auth" />} />
+          </Routes>
+        </Router>
+      </TaskProvider>
     </AuthProvider>
   );
 }
