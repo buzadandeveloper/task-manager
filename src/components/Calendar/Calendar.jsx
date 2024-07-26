@@ -8,6 +8,10 @@ const Calendar = () => {
       <DateCalendar
         sx={{
           margin: "1em",
+          padding: "1em",
+          backgroundColor: "white",
+          borderRadius: "25px",
+          boxShadow: "0px 30px 60px grey",
           "& .MuiPickersCalendarHeader-root": {
             backgroundColor: "#3754DB",
             borderRadius: "12px",

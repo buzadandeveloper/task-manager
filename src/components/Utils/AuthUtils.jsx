@@ -12,9 +12,11 @@ export const checkAuthDataLocalStorage = authData => {
   if (!user)
     return { success: false, message: "Email or password is incorrect." };
 
-  localStorage.setItem("loggedInUser", authData.email);
-  return { success: true };
+  const loggedInUser = { ...user, isAuthenticated: true };
+  localStorage.setItem("loggedInUser", JSON.stringify(loggedInUser));
+  return { success: true, user: loggedInUser };
 };
+
 export const isEmailRegistered = email => {
   const users = JSON.parse(localStorage.getItem("users")) || [];
   return users.some(user => user.email === email);

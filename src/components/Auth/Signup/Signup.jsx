@@ -85,7 +85,7 @@ const Signup = ({ handleChangeAuth }) => {
     if (Object.keys(newErrors).length === 0) {
       console.log(authData);
       saveAuthDataLocalStorage(authData);
-      login(authData.email);
+      login(authData.name, authData.email, authData.password);
       await LoadingSpinner(authData, setIsLoading, navigate);
     } else {
       setErrors(newErrors);

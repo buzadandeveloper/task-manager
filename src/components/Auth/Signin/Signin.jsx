@@ -46,9 +46,9 @@ const Signin = ({ handleChangeAuth }) => {
     e.preventDefault();
     let newErrors = validateSignIn();
     if (Object.keys(newErrors).length === 0) {
-      const { success, message } = checkAuthDataLocalStorage(authData);
+      const { success, user, message } = checkAuthDataLocalStorage(authData);
       if (success) {
-        login(authData.email);
+        login(user.name, user.email, user.password);
         await LoadingSpinner(authData, setIsLoading, navigate);
       } else {
         setErrors({ general: message });

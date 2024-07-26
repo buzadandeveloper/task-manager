@@ -1,24 +1,35 @@
-import React, { useState, useEffect, createContext, useContext } from "react";
+import React, { useState, createContext, useContext } from "react";
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [isAuthenticated, setIsAuthenticated] = useState(
-    !!localStorage.getItem("loggedInUser")
-  );
+  const [user, setUser] = useState(() => {
+    const storedUser = localStorage.getItem("loggedInUser");
+    try {
+      const parsedUser = JSON.parse(storedUser);
+      return parsedUser
+        ? { ...parsedUser, isAuthenticated: true }
+        : { isAuthenticated: false, name: "", email: "", password: "" };
+    } catch (error) {
+      return { isAuthenticated: false, name: "", email: "", password: "" };
+    }
+  });
 
-  const login = email => {
-    localStorage.setItem("loggedInUser", email);
-    setIsAuthenticated(true);
+  const login = (name, email, password) => {
+    const userData = { name, email, password, isAuthenticated: true };
+    localStorage.setItem("loggedInUser", JSON.stringify(userData));
+    setUser(userData);
   };
 
   const logout = () => {
     localStorage.removeItem("loggedInUser");
-    setIsAuthenticated(false);
+    setUser({ isAuthenticated: false, name: "", email: "", password: "" });
   };
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, login, logout }}>
+    <AuthContext.Provider
+      value={{ isAuthenticated: user.isAuthenticated, login, logout, user }}
+    >
       {children}
     </AuthContext.Provider>
   );
