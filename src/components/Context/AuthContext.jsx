@@ -1,34 +1,89 @@
-import React, { useState, createContext, useContext } from "react";
+import React, {
+  useReducer,
+  createContext,
+  useContext,
+  useEffect,
+  useState
+} from "react";
 
 const AuthContext = createContext();
 
-export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(() => {
-    const storedUser = localStorage.getItem("loggedInUser");
-    try {
-      const parsedUser = JSON.parse(storedUser);
-      return parsedUser
-        ? { ...parsedUser, isAuthenticated: true }
-        : { isAuthenticated: false, name: "", email: "", password: "" };
-    } catch (error) {
-      return { isAuthenticated: false, name: "", email: "", password: "" };
+const initialState = {
+  isAuthenticated: false,
+  name: "",
+  email: "",
+  password: ""
+};
+
+const authReducer = (state, action) => {
+  switch (action.type) {
+    case "LOGIN": {
+      return {
+        ...state,
+        isAuthenticated: true,
+        name: action.payload.name,
+        email: action.payload.email,
+        password: action.payload.password
+      };
     }
-  });
+    case "LOGOUT": {
+      return {
+        ...initialState
+      };
+    }
+    case "UPDATE_PROFILE": {
+      return {
+        ...state,
+        name: action.payload.name,
+        email: action.payload.email,
+        password: action.payload.password
+      };
+    }
+    default:
+      return state;
+  }
+};
+
+export const AuthProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(authReducer, initialState);
+  const [isInitialized, setIsInitialized] = useState(false);
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("loggedInUser");
+    if (storedUser) {
+      const parsedUser = JSON.parse(storedUser);
+      console.log("storedUser", storedUser);
+      dispatch({ type: "LOGIN", payload: parsedUser });
+    }
+    setIsInitialized(true);
+  }, []);
 
   const login = (name, email, password) => {
     const userData = { name, email, password, isAuthenticated: true };
     localStorage.setItem("loggedInUser", JSON.stringify(userData));
-    setUser(userData);
+    dispatch({ type: "LOGIN", payload: userData });
   };
 
   const logout = () => {
     localStorage.removeItem("loggedInUser");
-    setUser({ isAuthenticated: false, name: "", email: "", password: "" });
+    dispatch({ type: "LOGOUT" });
+  };
+
+  const updateProfile = (name, email, password) => {
+    const updatedUser = { name, email, password, isAuthenticated: true };
+    localStorage.setItem("loggedInUser", JSON.stringify(updatedUser));
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+
+    const updatedUsers = users.map(user =>
+      user.email === state.email ? updatedUser : user
+    );
+    localStorage.setItem("users", JSON.stringify(updatedUsers));
+    dispatch({ type: "UPDATE_PROFILE", payload: updatedUser });
   };
 
   return (
     <AuthContext.Provider
-      value={{ isAuthenticated: user.isAuthenticated, login, logout, user }}
+      value={{ ...state, login, logout, updateProfile, isInitialized }}
     >
       {children}
     </AuthContext.Provider>

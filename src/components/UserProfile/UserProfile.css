@@ -6,7 +6,7 @@
     max-height: 100%;
 }
 
-.edit-up {
+.head-up {
     display: flex;
     gap: 1em;
     justify-content: flex-end;
@@ -31,7 +31,7 @@ img {
 .up-details {
     display: flex;
     flex-direction: column;
-    gap: 1em;
+    gap: 0.3em;
 }
 
 .up-details p {
@@ -42,8 +42,10 @@ img {
     text-align: center;
 }
 
-.edit-btn, 
-.logout-btn {
+.head-up .edit-btn, 
+.head-up .logout-btn,
+.head-up .save-btn-up,
+.head-up .cancel-btn-up {
     border: none;
     background-color: transparent;
     cursor: pointer;
@@ -51,16 +53,28 @@ img {
     border-radius: 12px;
 }
 
-.edit-btn {
+.edit-btn,
+.head-up .save-btn-up {
     color: #3754DB;
 }
 
-.logout-btn {
+.logout-btn,
+.head-up .cancel-btn-up {
     color: #D12B2B;
 }
 
 .edit-btn:hover,
-.logout-btn:hover {
+.logout-btn:hover,
+.head-up .save-btn-up:hover,
+.head-up .cancel-btn-up:hover {
     background-color: rgb(219, 219, 219);
     transition: ease 0.4s;
+}
+
+.edit-name, 
+.edit-email {
+    padding: 0.3em 0.8em;
+}
+.up-details .error {
+    font-size: 0.875rem;
 }
