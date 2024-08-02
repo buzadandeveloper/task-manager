@@ -1,0 +1,37 @@
+.head-up {
+    display: flex;
+    gap: 1em;
+    justify-content: flex-end;
+    margin-top: 3em ;
+    margin-right: 2em;
+    margin-bottom: 3em;
+}
+
+.head-up .edit-btn, 
+.head-up .logout-btn,
+.head-up .save-btn-up,
+.head-up .cancel-btn-up {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 12px;
+}
+
+.edit-btn,
+.head-up .save-btn-up {
+    color: #3754DB;
+}
+
+.logout-btn,
+.head-up .cancel-btn-up {
+    color: #D12B2B;
+}
+
+.edit-btn:hover,
+.logout-btn:hover,
+.head-up .save-btn-up:hover,
+.head-up .cancel-btn-up:hover {
+    background-color: rgb(219, 219, 219);
+    transition: ease 0.4s;
+}

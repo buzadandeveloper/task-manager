@@ -51,6 +51,7 @@ const Signup = ({ handleChangeAuth }) => {
     !authData.name && (newErrors.name = "Name is required.");
     const emailRegex =
       /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}$/;
     if (!authData.email) {
       newErrors.email = "Email is required.";
     } else if (!emailRegex.test(authData.email)) {
@@ -58,7 +59,6 @@ const Signup = ({ handleChangeAuth }) => {
     } else if (isEmailRegistered(authData.email)) {
       newErrors.email = "Email is already registered.";
     }
-    const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}$/;
     !passwordRegex.test(authData.password) &&
       (newErrors.password = "Password is required according to the criterion.");
     !authData.confirmPassword &&

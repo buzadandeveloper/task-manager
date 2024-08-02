@@ -1,0 +1,46 @@
+.file-input-container {
+    position: relative;
+    display: inline-block;
+}
+
+.file-input {
+    display: none;
+}
+
+.file-label {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.file-label::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #3754DB;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: background-color 0.3s ease;
+}
+
+.file-label:hover::before {
+    background-color: #007bff;
+}
+
+.file-label::after {
+    content: 'Choose Image';
+    position: relative;
+    color: white;
+    font-size: 12px;
+    z-index: 1;
+}

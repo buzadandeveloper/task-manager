@@ -10,6 +10,7 @@ const AuthContext = createContext();
 
 const initialState = {
   isAuthenticated: false,
+  image: "",
   name: "",
   email: "",
   password: ""
@@ -21,6 +22,7 @@ const authReducer = (state, action) => {
       return {
         ...state,
         isAuthenticated: true,
+        image: action.payload.image,
         name: action.payload.name,
         email: action.payload.email,
         password: action.payload.password
@@ -34,6 +36,7 @@ const authReducer = (state, action) => {
     case "UPDATE_PROFILE": {
       return {
         ...state,
+        image: action.payload.image,
         name: action.payload.name,
         email: action.payload.email,
         password: action.payload.password
@@ -58,8 +61,8 @@ export const AuthProvider = ({ children }) => {
     setIsInitialized(true);
   }, []);
 
-  const login = (name, email, password) => {
-    const userData = { name, email, password, isAuthenticated: true };
+  const login = (name, email, password, image) => {
+    const userData = { name, email, password, image, isAuthenticated: true };
     localStorage.setItem("loggedInUser", JSON.stringify(userData));
     dispatch({ type: "LOGIN", payload: userData });
   };
@@ -69,8 +72,8 @@ export const AuthProvider = ({ children }) => {
     dispatch({ type: "LOGOUT" });
   };
 
-  const updateProfile = (name, email, password) => {
-    const updatedUser = { name, email, password, isAuthenticated: true };
+  const updateProfile = (image, name, email, password) => {
+    const updatedUser = { image, name, email, password, isAuthenticated: true };
     localStorage.setItem("loggedInUser", JSON.stringify(updatedUser));
     const users = JSON.parse(localStorage.getItem("users")) || [];
 
