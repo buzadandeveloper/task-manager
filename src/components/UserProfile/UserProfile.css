@@ -130,6 +130,7 @@
     display: flex;
     justify-content: space-between;
 }
+
 span.error.long-text {
     width: 200px;
 }

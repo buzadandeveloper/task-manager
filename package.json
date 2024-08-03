@@ -42,12 +42,13 @@
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
       "prettier --write",
-      "eslint --fix"
+      "eslint --fix",
+      "git add"
     ]
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npx lint-staged"
+      "pre-commit": "lint-staged"
     }
   }
 }
