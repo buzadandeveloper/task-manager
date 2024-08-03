@@ -3,7 +3,7 @@ import "./EmptyListView.css";
 import CreateButton from "../CreateTaskButton/CreateButton";
 import TaskIcon from "../../assets/task-icon/task-icon.png";
 
-const EmptyListView = ({ openModal, filter }) => {
+function EmptyListView({ openModal, filter }) {
   let message;
   let showDefaultMessage = false;
   switch (filter) {
@@ -18,20 +18,18 @@ const EmptyListView = ({ openModal, filter }) => {
       showDefaultMessage = true;
   }
   return (
-    <>
-      <div className="empty-list-container">
-        <img src={TaskIcon} alt="task-icon" />
-        <div className="empty-list-message">
-          <h5>{message}</h5>
-          {showDefaultMessage && (
-            <>
-              <p>Be productive. Create Tasks.</p>
-              <CreateButton openModal={openModal} />
-            </>
-          )}
-        </div>
+    <div className="empty-list-container">
+      <img src={TaskIcon} alt="task-icon" />
+      <div className="empty-list-message">
+        <h5>{message}</h5>
+        {showDefaultMessage && (
+          <>
+            <p>Be productive. Create Tasks.</p>
+            <CreateButton openModal={openModal} />
+          </>
+        )}
       </div>
-    </>
+    </div>
   );
-};
+}
 export default EmptyListView;

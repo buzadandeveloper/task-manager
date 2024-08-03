@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import "./TaskCard.css";
 import Badge from "../Badget/Badge";
 import DueDate from "../DateContainer/DueDate";
+
 export default function TaskCard({
   id,
   status,

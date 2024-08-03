@@ -2,7 +2,6 @@ module.exports = {
   root: true,
   env: { browser: true, es2021: true },
   extends: [
-    "airbnb",
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:react/jsx-runtime",
@@ -28,6 +27,11 @@ module.exports = {
     "no-unused-vars": "off",
     "no-useless-escape": "off",
     "react-hooks/exhaustive-deps": "off",
-    "react/no-unescaped-entities": "off"
+    "react/no-unescaped-entities": "off",
+    "import/no-extraneous-dependencies": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
+    "jsx-a11y/no-noninteractive-element-interactions": "off",
+    "jsx-a11y/label-has-associated-control": "off"
   }
 };

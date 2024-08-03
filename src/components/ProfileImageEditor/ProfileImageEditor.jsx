@@ -2,14 +2,14 @@ import React from "react";
 import "./ProfileImageEditor.css";
 import AvatarEditor from "react-avatar-editor";
 
-const ProfileImageEditor = ({
+function ProfileImageEditor({
   editUserProfile,
   handleChangeImage,
   imgaeFile,
   scale,
   editorRef,
   userProfileData
-}) => {
+}) {
   return (
     <div className="up-img">
       {editUserProfile ? (
@@ -19,11 +19,11 @@ const ProfileImageEditor = ({
             id="file-input"
             className="file-input"
             onChange={handleChangeImage}
-          ></input>
+          />
           <label
             htmlFor="file-input"
             className={imgaeFile ? "" : "file-label"}
-          ></label>
+          />
           {imgaeFile && (
             <AvatarEditor
               ref={editorRef}
@@ -42,6 +42,6 @@ const ProfileImageEditor = ({
       )}
     </div>
   );
-};
+}
 
 export default ProfileImageEditor;

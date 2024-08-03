@@ -9,7 +9,7 @@ import {
   isEmailRegistered
 } from "../../Utils/AuthUtils";
 
-const Signup = ({ handleChangeAuth }) => {
+function Signup({ handleChangeAuth }) {
   const [authData, setAuthData] = useState({
     name: "",
     email: "",
@@ -81,7 +81,7 @@ const Signup = ({ handleChangeAuth }) => {
 
   const handleSignUp = async e => {
     e.preventDefault();
-    let newErrors = validateSignUp();
+    const newErrors = validateSignUp();
     if (Object.keys(newErrors).length === 0) {
       console.log(authData);
       saveAuthDataLocalStorage(authData);
@@ -154,7 +154,7 @@ const Signup = ({ handleChangeAuth }) => {
           </p>
         </div>
         {isLoading ? (
-          <div className="spinner"></div>
+          <div className="spinner" />
         ) : (
           <button type="submit" className="sign-up-btn" onClick={handleSignUp}>
             Sign Up
@@ -166,6 +166,6 @@ const Signup = ({ handleChangeAuth }) => {
       </form>
     </div>
   );
-};
+}
 
 export default Signup;

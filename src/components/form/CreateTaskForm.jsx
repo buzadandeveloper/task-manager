@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./CreateTaskForm.css";
 import CloseButton from "../CloseButton/CloseButton";
 
-const CreateTaskForm = ({ addNewTask, closeModal }) => {
+function CreateTaskForm({ addNewTask, closeModal }) {
   const [formData, setFormData] = useState({
     taskName: "",
     taskDate: "",
@@ -40,7 +40,7 @@ const CreateTaskForm = ({ addNewTask, closeModal }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    let newErrors = validateForm();
+    const newErrors = validateForm();
     if (Object.keys(newErrors).length === 0) {
       const newTask = {
         name: formData.taskName,
@@ -94,7 +94,7 @@ const CreateTaskForm = ({ addNewTask, closeModal }) => {
             className="input-primary"
             cols={30}
             rows={10}
-          ></textarea>
+          />
         </div>
         <button onClick={handleSubmit} className="button-primary" type="submit">
           Create Task
@@ -102,5 +102,5 @@ const CreateTaskForm = ({ addNewTask, closeModal }) => {
       </form>
     </div>
   );
-};
+}
 export default CreateTaskForm;

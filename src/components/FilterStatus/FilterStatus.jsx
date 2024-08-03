@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./FilterStatus.css";
-const FilterStatus = ({ setFilter, filteredLength }) => {
+
+function FilterStatus({ setFilter, filteredLength }) {
   const filterItems = ["All Tasks", "To Do", "In Progress", "Completed"];
   const [activeFilter, setActiveFilter] = useState("All Tasks");
   const handleFilter = filter => {
@@ -24,5 +25,5 @@ const FilterStatus = ({ setFilter, filteredLength }) => {
       </div>
     </div>
   );
-};
+}
 export default FilterStatus;

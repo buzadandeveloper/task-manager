@@ -7,7 +7,7 @@ import Calendar from "../Calendar/Calendar";
 import { isEmailRegistered } from "../Utils/AuthUtils";
 import imageDefault from "../../assets/task-icon/task-icon.png";
 
-const UserProfile = () => {
+function UserProfile() {
   const { logout, image, name, email, password, updateProfile } = useAuth();
   const [editUserProfile, setEditUserProfile] = useState(false);
   const [changePassword, setChangePassword] = useState(false);
@@ -251,6 +251,6 @@ const UserProfile = () => {
       </div>
     </div>
   );
-};
+}
 
 export default UserProfile;

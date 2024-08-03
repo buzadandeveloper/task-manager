@@ -5,7 +5,7 @@ import LoadingSpinner from "../../Utils/LoadingSpinner";
 import "./Signin.css";
 import { checkAuthDataLocalStorage } from "../../Utils/AuthUtils";
 
-const Signin = ({ handleChangeAuth }) => {
+function Signin({ handleChangeAuth }) {
   const [authData, setAuthData] = useState({
     email: "",
     password: ""
@@ -44,7 +44,7 @@ const Signin = ({ handleChangeAuth }) => {
 
   const handleSignIn = async e => {
     e.preventDefault();
-    let newErrors = validateSignIn();
+    const newErrors = validateSignIn();
     if (Object.keys(newErrors).length === 0) {
       const { success, user, message } = checkAuthDataLocalStorage(authData);
       if (success) {
@@ -82,7 +82,7 @@ const Signin = ({ handleChangeAuth }) => {
           {errors.general && <span className="error">{errors.general}</span>}
         </div>
         {isLoading ? (
-          <div className="spinner"></div>
+          <div className="spinner" />
         ) : (
           <button type="submit" className="sign-in-btn" onClick={handleSignIn}>
             Sign In
@@ -94,6 +94,6 @@ const Signin = ({ handleChangeAuth }) => {
       </form>
     </div>
   );
-};
+}
 
 export default Signin;

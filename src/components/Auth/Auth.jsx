@@ -3,7 +3,7 @@ import "./Auth.css";
 import Signup from "./Signup/Signup";
 import Signin from "./Signin/Signin";
 
-const Auth = () => {
+function Auth() {
   const [authType, setAuthType] = useState(true);
 
   const handleChangeAuth = () => {
@@ -19,6 +19,6 @@ const Auth = () => {
       )}
     </div>
   );
-};
+}
 
 export default Auth;

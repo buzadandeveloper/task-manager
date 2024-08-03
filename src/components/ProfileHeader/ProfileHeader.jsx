@@ -1,14 +1,14 @@
 import React from "react";
 import "./ProfileHeader.css";
 
-const ProfileHeader = ({
+function ProfileHeader({
   editUserProfile,
   handleSave,
   handleCancel,
   handleEdit,
   changePassword,
   logout
-}) => {
+}) {
   return (
     <div className="head-up">
       {editUserProfile ? (
@@ -36,6 +36,6 @@ const ProfileHeader = ({
       )}
     </div>
   );
-};
+}
 
 export default ProfileHeader;

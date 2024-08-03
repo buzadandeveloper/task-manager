@@ -9,7 +9,7 @@ import EmptyListView from "../EmptyListView/EmptyListView";
 import UserProfile from "../UserProfile/UserProfile";
 import { TaskContext } from "../Context/TaskContext";
 
-const TaskViewer = () => {
+function TaskViewer() {
   const {
     taskList,
     openModal,
@@ -32,7 +32,7 @@ const TaskViewer = () => {
         <div className="task-view-container">
           <div className="task-list-container">
             <ControlPanel openModal={openModal} taskList={taskList} />
-            <div className={"task-list-grid"}>
+            <div className="task-list-grid">
               {filteredTasks.length > 0 ? (
                 filteredTasks.map(task => (
                   <TaskCard
@@ -71,6 +71,6 @@ const TaskViewer = () => {
       </div>
     </div>
   );
-};
+}
 
 export default TaskViewer;

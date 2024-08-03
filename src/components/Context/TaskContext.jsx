@@ -25,7 +25,7 @@ const tasks = [
   }
 ];
 
-const TaskProvider = ({ children }) => {
+function TaskProvider({ children }) {
   const [taskList, setTaskList] = useState(tasks);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isTaskViewOpen, setIsTaskViewOpen] = useState(false);
@@ -120,6 +120,6 @@ const TaskProvider = ({ children }) => {
       {children}
     </TaskContext.Provider>
   );
-};
+}
 
 export { TaskProvider, TaskContext };

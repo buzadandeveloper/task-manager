@@ -3,7 +3,8 @@ import "./ControlPanel.css";
 import CreateButton from "../CreateTaskButton/CreateButton";
 import FilterStatus from "../FilterStatus/FilterStatus";
 import { TaskContext } from "../Context/TaskContext";
-const ControlPanel = () => {
+
+function ControlPanel() {
   const { openModal, taskList, setFilter, filteredLength } =
     useContext(TaskContext);
 
@@ -18,5 +19,5 @@ const ControlPanel = () => {
       </div>
     </div>
   );
-};
+}
 export default ControlPanel;

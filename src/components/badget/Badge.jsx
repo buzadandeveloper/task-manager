@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Badge.css";
+
 function Badge({ status, taskId, openTaskInfo, updateTaskStatus }) {
   const [showDropDown, setShowDropDown] = useState(false);
   const statusTask = ["To Do", "In Progress", "Completed"];

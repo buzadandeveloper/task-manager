@@ -4,13 +4,13 @@ import CloseButton from "../CloseButton/CloseButton";
 import Badge from "../Badget/Badge";
 import DueDate from "../DateContainer/DueDate";
 
-const TaskView = ({
+function TaskView({
   openTaskInfo,
   closeModal,
   selectedTask,
   updateTaskStatus,
   handleDeleteTask
-}) => {
+}) {
   const { id, status, name, taskDetails, dueDate } = selectedTask;
 
   const [editFormData, setEditFormData] = useState({
@@ -22,7 +22,7 @@ const TaskView = ({
   const [errors, setErrors] = useState({});
 
   const handleSaveChanges = () => {
-    let newErrors = validateEditForm();
+    const newErrors = validateEditForm();
     if (Object.keys(newErrors).length === 0) {
       const updateTask = {
         ...selectedTask,
@@ -58,111 +58,109 @@ const TaskView = ({
   };
 
   return (
-    <>
-      <div className="task-info-wrapper">
-        <div className="task-info-header">
-          <h3>Task Information</h3>
-          <CloseButton closeModal={closeModal} />
+    <div className="task-info-wrapper">
+      <div className="task-info-header">
+        <h3>Task Information</h3>
+        <CloseButton closeModal={closeModal} />
+      </div>
+      <div className="task-info-content">
+        <div className="task-header">
+          <p className="task-id">{id}</p>
+          <Badge
+            status={status}
+            taskId={id}
+            openTaskInfo={openTaskInfo}
+            updateTaskStatus={updateTaskStatus}
+          />
         </div>
-        <div className="task-info-content">
-          <div className="task-header">
-            <p className="task-id">{id}</p>
-            <Badge
-              status={status}
-              taskId={id}
-              openTaskInfo={openTaskInfo}
-              updateTaskStatus={updateTaskStatus}
-            />
-          </div>
-          <div className="task-content">
-            <div className="task-name">
-              <h2>Task Name:</h2>
-              {isEditing ? (
-                <input
-                  type="text"
-                  value={editFormData.editableTaskName}
-                  maxLength={42}
-                  onChange={e =>
-                    setEditFormData({
-                      ...editFormData,
-                      editableTaskName: e.target.value
-                    })
-                  }
-                />
-              ) : (
-                <h4
-                  onDoubleClick={handleOnDoubleClick}
-                  onTouchStart={handleOnTouchStart}
-                >
-                  {name}
-                </h4>
-              )}
-            </div>
-            {errors.editableTaskName && (
-              <span className="edit-name-error">{errors.editableTaskName}</span>
-            )}
-            <div className="task-details">
-              <h2>Task Details:</h2>
-              {isEditing ? (
-                <textarea
-                  value={editFormData.editableTaskDetails}
-                  cols={10}
-                  rows={5}
-                  onChange={e =>
-                    setEditFormData({
-                      ...editFormData,
-                      editableTaskDetails: e.target.value
-                    })
-                  }
-                />
-              ) : (
-                <p
-                  onDoubleClick={handleOnDoubleClick}
-                  onTouchStart={handleOnTouchStart}
-                >
-                  {taskDetails}
-                </p>
-              )}
-            </div>
-          </div>
-          <div className="task-footer">
+        <div className="task-content">
+          <div className="task-name">
+            <h2>Task Name:</h2>
             {isEditing ? (
-              <button className="save-btn" onClick={handleSaveChanges}>
-                Save
-              </button>
+              <input
+                type="text"
+                value={editFormData.editableTaskName}
+                maxLength={42}
+                onChange={e =>
+                  setEditFormData({
+                    ...editFormData,
+                    editableTaskName: e.target.value
+                  })
+                }
+              />
             ) : (
-              <button
-                className="delete-task"
-                onClick={() => handleDeleteTask(id)}
+              <h4
+                onDoubleClick={handleOnDoubleClick}
+                onTouchStart={handleOnTouchStart}
               >
-                Delete
-              </button>
-            )}
-
-            {isEditing ? (
-              <div className="edited-due-date">
-                <h2>Due Date</h2>
-                <input
-                  type="date"
-                  value={
-                    editFormData.editableTaskDueDate.toISOString().split("T")[0]
-                  }
-                  onChange={e =>
-                    setEditFormData({
-                      ...editFormData,
-                      editableTaskDueDate: new Date(e.target.value)
-                    })
-                  }
-                />
-              </div>
-            ) : (
-              <DueDate dueDate={dueDate} />
+                {name}
+              </h4>
             )}
           </div>
+          {errors.editableTaskName && (
+            <span className="edit-name-error">{errors.editableTaskName}</span>
+          )}
+          <div className="task-details">
+            <h2>Task Details:</h2>
+            {isEditing ? (
+              <textarea
+                value={editFormData.editableTaskDetails}
+                cols={10}
+                rows={5}
+                onChange={e =>
+                  setEditFormData({
+                    ...editFormData,
+                    editableTaskDetails: e.target.value
+                  })
+                }
+              />
+            ) : (
+              <p
+                onDoubleClick={handleOnDoubleClick}
+                onTouchStart={handleOnTouchStart}
+              >
+                {taskDetails}
+              </p>
+            )}
+          </div>
+        </div>
+        <div className="task-footer">
+          {isEditing ? (
+            <button className="save-btn" onClick={handleSaveChanges}>
+              Save
+            </button>
+          ) : (
+            <button
+              className="delete-task"
+              onClick={() => handleDeleteTask(id)}
+            >
+              Delete
+            </button>
+          )}
+
+          {isEditing ? (
+            <div className="edited-due-date">
+              <h2>Due Date</h2>
+              <input
+                type="date"
+                value={
+                  editFormData.editableTaskDueDate.toISOString().split("T")[0]
+                }
+                onChange={e =>
+                  setEditFormData({
+                    ...editFormData,
+                    editableTaskDueDate: new Date(e.target.value)
+                  })
+                }
+              />
+            </div>
+          ) : (
+            <DueDate dueDate={dueDate} />
+          )}
         </div>
       </div>
-    </>
+    </div>
   );
-};
+}
 
 export default TaskView;
