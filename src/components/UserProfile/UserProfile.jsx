@@ -43,10 +43,6 @@ const UserProfile = () => {
     setImageFile(null);
   };
 
-
-
-
-
   const handleChange = e => {
     setUserProfileData({
       ...userProfileData,
