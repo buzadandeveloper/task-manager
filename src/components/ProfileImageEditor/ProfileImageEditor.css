@@ -1,3 +1,11 @@
+.profile-image{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid rgb(66, 98, 240);
+    object-fit: cover;
+}
+
 .file-input-container {
     position: relative;
     display: inline-block;
