@@ -83,7 +83,6 @@ function Signup({ handleChangeAuth }) {
     e.preventDefault();
     const newErrors = validateSignUp();
     if (Object.keys(newErrors).length === 0) {
-      console.log(authData);
       saveAuthDataLocalStorage(authData);
       login(authData.name, authData.email, authData.password);
       await LoadingSpinner(authData, setIsLoading, navigate);
