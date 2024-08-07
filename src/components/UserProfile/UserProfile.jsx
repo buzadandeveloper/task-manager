@@ -9,14 +9,14 @@ import { isEmailRegistered } from "../Utils/AuthUtils";
 import imageDefault from "../../assets/task-icon/task-icon.png";
 
 function UserProfile() {
-  const { logout, image, name, email, password, updateProfile } = useAuth();
+  const { logout, user, updateProfile } = useAuth();
   const [editUserProfile, setEditUserProfile] = useState(false);
   const [changePassword, setChangePassword] = useState(false);
   const [userProfileData, setUserProfileData] = useState({
-    image: image || imageDefault,
-    name: name || "",
-    email: email || "",
-    currentPassword: password,
+    image: user.image || imageDefault,
+    name: user.name || "",
+    email: user.email || "",
+    currentPassword: user.password,
     newPassword: ""
   });
 
@@ -26,13 +26,13 @@ function UserProfile() {
 
   useEffect(() => {
     setUserProfileData({
-      image: image || imageDefault,
-      name: name || "",
-      email: email || "",
-      currentPassword: password,
+      image: user.image || imageDefault,
+      name: user.name || "",
+      email: user.email || "",
+      currentPassword: user.password,
       newPassword: ""
     });
-  }, [name, email, password]);
+  }, [user.name, user.email, user.password]);
 
   const [errors, setErrors] = useState({});
   const handleEdit = () => {
@@ -68,7 +68,7 @@ function UserProfile() {
     setChangePassword(false);
     setUserProfileData(prevState => ({
       ...prevState,
-      currentPassword: password,
+      currentPassword: user.password,
       newPassword: ""
     }));
     setErrors({});
@@ -134,7 +134,7 @@ function UserProfile() {
       newErrors.email = "Invalid email format.";
     } else if (
       isEmailRegistered(userProfileData.email) &&
-      userProfileData.email !== email
+      userProfileData.email !== user.email
     ) {
       newErrors.email = "Email is already registered.";
     }
@@ -177,8 +177,8 @@ function UserProfile() {
           handleBackPassword={handleBackPassword}
           handleSavePassword={handleSavePassword}
           handleChangePassword={handleChangePassword}
-          name={name}
-          email={email}
+          name={user.name}
+          email={user.email}
         />
         <Calendar />
       </div>
