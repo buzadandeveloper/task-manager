@@ -2,11 +2,17 @@ import React from "react";
 import "./DueDate.css";
 
 function DueDate({ dueDate }) {
-  return (
-    <div className="due-date">
-      <p>Due Date</p>
-      <p>{dueDate.toLocaleDateString()}</p>
-    </div>
-  );
+  let date;
+  try {
+    date = new Date(dueDate);
+    if (isNaN(date.getTime())) {
+      throw new Error("Invalid Date");
+    }
+  } catch (error) {
+    console.error("Invalid date:", dueDate);
+  }
+
+  return <span>{date.toLocaleDateString()}</span>;
 }
+
 export default DueDate;
