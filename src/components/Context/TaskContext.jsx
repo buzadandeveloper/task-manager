@@ -47,7 +47,7 @@ function TaskProvider({ children }) {
     if (isAuthenticated && user) {
       localStorage.setItem(`tasks_${user.email}`, JSON.stringify(taskList));
     }
-  }, [taskList, isAuthenticated, user]);
+  }, [taskList, isAuthenticated]);
 
   const addNewTask = newTask => {
     setTaskList(prevState => [
