@@ -4,48 +4,59 @@
   gap: 2em;
   width: 20em;
 }
+
 .task-info-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 6em;
 }
+
 .task-info-header h3 {
   margin: 0;
   line-height: 1;
 }
+
 .task-header {
   display: flex;
   justify-content: space-between;
 }
+
 h2 {
   font-size: 1.2rem;
   font-weight: 700;
 }
+
 .task-info-content {
   display: flex;
   flex-direction: column;
   gap: 1em;
 }
+
 .task-content {
   display: flex;
   flex-direction: column;
   gap: 1em;
 }
+
 .task-contnet h2 {
   word-wrap: break-word;
   white-space: normal;
 }
+
 .task-content h4 {
   font-weight: 400;
 }
+
 .task-details {
   white-space: pre-wrap;
 }
+
 .task-footer {
   display: flex;
   justify-content: space-between;
 }
+
 .task-footer .delete-task {
   color: rgb(209, 43, 43);
   transform: translateY(8px);
@@ -56,21 +67,24 @@ h2 {
   display: inline-block;
   cursor: pointer;
 }
-.task-footer .delete-task::after {
+
+.delete-task::after {
   content: "";
   position: absolute;
   width: 0;
   height: 1.3px;
-  bottom: 5px;
+  bottom: 0px;
   left: 0;
   visibility: hidden;
   background-color: rgb(209, 43, 43);
   transition: all 0.3s ease-in-out;
 }
-.task-footer .delete-task:hover::after {
+
+.delete-task:hover::after {
   width: 100%;
   visibility: visible;
 }
+
 input,
 textarea {
   border: 1px solid #a8abbd;
@@ -80,6 +94,7 @@ textarea {
   font-size: 0.915rem;
   font-family: "Sen";
 }
+
 textarea {
   resize: none;
 }
@@ -87,21 +102,25 @@ textarea {
 textarea::-webkit-scrollbar {
   display: none;
 }
+
 .edited-due-date h2 {
   color: #999999;
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 0.875rem;
 }
+
 .edited-due-date input {
   font-weight: 700;
   color: #16171d;
   font-size: 0.875rem;
   line-height: 1rem;
 }
+
 .edited-due-date input[type="date"]::-webkit-calendar-picker-indicator {
   cursor: pointer;
 }
+
 .save-btn {
   border: none;
   background-color: #ffffff;
@@ -112,6 +131,7 @@ textarea::-webkit-scrollbar {
   position: relative;
   display: inline-block;
 }
+
 .save-btn::after {
   content: "";
   position: absolute;
@@ -123,10 +143,12 @@ textarea::-webkit-scrollbar {
   background-color: #3754db;
   transition: all 0.3s ease-in-out;
 }
+
 .save-btn:hover::after {
   width: 100%;
   visibility: visible;
 }
+
 .edit-name-error {
   color: red;
   font-size: 0.9rem;
