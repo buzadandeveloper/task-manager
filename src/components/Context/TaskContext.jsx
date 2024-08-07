@@ -1,7 +1,8 @@
 import React, { createContext, useState, useEffect } from "react";
+import { useAuth } from "./AuthContext";
 
 const TaskContext = createContext();
-const tasks = [
+const initialTasks = [
   {
     id: "T-1",
     status: "Completed",
@@ -26,11 +27,27 @@ const tasks = [
 ];
 
 function TaskProvider({ children }) {
-  const [taskList, setTaskList] = useState(tasks);
+  const [taskList, setTaskList] = useState(initialTasks);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isTaskViewOpen, setIsTaskViewOpen] = useState(false);
   const [selectedTask, setSelectedTask] = useState(null);
   const [filter, setFilter] = useState("All Tasks");
+  const { user, isAuthenticated } = useAuth();
+
+  useEffect(() => {
+    if (isAuthenticated && user) {
+      const savedTasks = JSON.parse(
+        localStorage.getItem(`tasks_${user.email}`)
+      );
+      savedTasks ? setTaskList(savedTasks) : setTaskList(initialTasks);
+    }
+  }, [isAuthenticated, user]);
+
+  useEffect(() => {
+    if (isAuthenticated && user) {
+      localStorage.setItem(`tasks_${user.email}`, JSON.stringify(taskList));
+    }
+  }, [taskList, isAuthenticated, user]);
 
   const addNewTask = newTask => {
     setTaskList(prevState => [
