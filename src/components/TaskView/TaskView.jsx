@@ -16,7 +16,7 @@ function TaskView({
   const [editFormData, setEditFormData] = useState({
     editableTaskName: name,
     editableTaskDetails: taskDetails,
-    editableTaskDueDate: dueDate
+    editableTaskDueDate: new Date(dueDate)
   });
   const [isEditing, setIsEditing] = useState(false);
   const [errors, setErrors] = useState({});
