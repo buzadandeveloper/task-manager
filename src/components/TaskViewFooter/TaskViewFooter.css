@@ -1,0 +1,78 @@
+.task-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.delete-task {
+  color: var(--red-color);
+  transform: translateY(8px);
+  font-size: 1rem;
+  border: none;
+  background-color: #ffffff;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.delete-task::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 1.3px;
+  bottom: 0px;
+  left: 0;
+  visibility: hidden;
+  background-color: var(--red-color);
+  transition: all 0.3s ease-in-out;
+}
+
+.delete-task:hover::after {
+  width: 100%;
+  visibility: visible;
+}
+
+.edited-due-date h2 {
+  color: #999999;
+  font-weight: 400;
+  font-size: 0.75rem;
+  line-height: 0.875rem;
+}
+
+.edited-due-date input {
+  font-weight: 700;
+  color: #16171d;
+  font-size: 0.875rem;
+  line-height: 1rem;
+}
+
+.edited-due-date input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+}
+
+.save-btn {
+  border: none;
+  background-color: #ffffff;
+  cursor: pointer;
+  color: var(--blue-color);
+  font-size: 1rem;
+  transform: translateY(8px);
+  position: relative;
+  display: inline-block;
+}
+
+.save-btn::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 1.3px;
+  bottom: 15px;
+  left: 0;
+  visibility: hidden;
+  background-color: var(--blue-color);
+  transition: all 0.3s ease-in-out;
+}
+
+.save-btn:hover::after {
+  width: 100%;
+  visibility: visible;
+}
