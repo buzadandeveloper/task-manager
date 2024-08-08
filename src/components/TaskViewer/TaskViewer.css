@@ -7,20 +7,24 @@
   max-height: 100%;
   gap: 2em;
 }
+
 .task-content {
   display: flex;
   justify-content: space-between;
   gap: 3em;
 }
+
 .task-content h3 {
   margin-bottom: 1.5em;
   font-weight: 400;
 }
+
 .task-view-container {
   background-color: rgb(232, 230, 230);
   border-radius: 50px;
   padding: 3rem;
 }
+
 .task-view-container::-webkit-scrollbar {
   display: none;
 }
@@ -31,6 +35,7 @@
   grid-template-columns: repeat(4, 250px);
   gap: 3.125em;
 }
+
 .empty-list-container {
   display: flex;
   align-items: center;
@@ -38,6 +43,7 @@
   width: 1150px;
   height: 640px;
 }
+
 @media (max-width: 1000px) {
   .task-list-grid {
     grid-template-columns: repeat(2, 250px);

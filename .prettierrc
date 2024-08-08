@@ -14,14 +14,16 @@
   "requirePragma": false,
   "quoteProps": "as-needed",
   "trailingComma": "none",
-  "eslintIntegration": true,
   "jsxSingleQuote": false,
   "vueIndentScriptAndStyle": false,
   "overrides": [
     {
       "files": "*.css",
       "options": {
-        "parser": "css"
+        "parser": "css",
+        "bracketSpacing": true,        
+        "endOfLine": "lf",             
+        "printWidth": 80               
       }
     }
   ]

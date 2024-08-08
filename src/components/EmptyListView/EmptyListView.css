@@ -2,18 +2,22 @@
   display: flex;
   flex-direction: column;
 }
+
 .empty-list-container img {
   width: 10%;
 }
+
 .empty-list-message {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
+
 .empty-list-message h5 {
   font-size: 1.125rem;
 }
+
 .empty-list-message p {
   font-size: 1rem;
   margin-bottom: 1em;

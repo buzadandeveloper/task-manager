@@ -1,94 +1,103 @@
 .sign-up-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-   
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
+
 .sign-up-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 350px;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
-    
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 350px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
 }
-.sign-up-content h2 {   
-    text-align: center;
-    margin-bottom: 1em;
-    color: var(--blue-color);
-    width: 100%;
+
+.sign-up-content h2 {
+  text-align: center;
+  margin-bottom: 1em;
+  color: var(--blue-color);
+  width: 100%;
 }
+
 .sign-up-content .inputs {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4em;
-    width: 100%;
-} 
-.sign-up-content input{
-    display: flex;
-    flex-direction: column;
-    border-radius: 8px;
-    width: 100%;
-   
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
+  width: 100%;
 }
+
+.sign-up-content input {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  width: 100%;
+}
+
 .sign-up-btn {
-    padding: 10px;
-    border: none;
-    border-radius: 8px;
-    background-color: var(--blue-color);
-    color: #fff;
-    cursor: pointer;
-    font-size: 0.825rem;
-    width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--blue-color);
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.825rem;
+  width: 100%;
 }
+
 .sign-up-btn:hover {
-    background-color: var(--blue-hover-color);
+  background-color: var(--blue-hover-color);
 }
+
 .sign-up-content .alt-sign {
-    cursor: pointer;
-    font-size: 0.975rem;
+  cursor: pointer;
+  font-size: 0.975rem;
 }
+
 .sign-up-content .alt-sign:hover {
-    color: var(--blue-color);
+  color: var(--blue-color);
 }
+
 .error-input {
-    border-color: var(--red-color);
+  border-color: var(--red-color);
 }
+
 .error {
-    color: var(--red-color);
-    font-size: 0.900rem;
+  color: var(--red-color);
+  font-size: 0.9rem;
 }
+
 .pass-validation {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
-    padding-left: 1em;
-    color: var(--grey-color);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  padding-left: 1em;
+  color: var(--grey-color);
 }
+
 .pass-validation p {
-    font-size: 0.875rem;
+  font-size: 0.875rem;
 }
 
 .valid {
-    color: var(--green-color);
+  color: var(--green-color);
 }
+
 .spinner {
-    border: 4px solid rgba(0, 0, 0, 0.1);
-    border-left-color: var(--blue-color);
-    border-radius: 50%;
-    width: 24px;
-    height: 24px;
-    animation: spin 1s linear infinite;
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: var(--blue-color);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
   }
-  
-  @keyframes spin {
-    to {
-      transform: rotate(360deg);
-    }
-  }
-  
+}
