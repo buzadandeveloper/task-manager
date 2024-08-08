@@ -4,8 +4,19 @@
   box-sizing: border-box;
   font-family: "Sen";
 }
+
+:root {
+  --blue-color: #3754db;
+  --blue-hover-color: rgba(49, 83, 235, 0.854);
+  --grey-color: #989898;
+  --red-color: #D12B2B;
+  --green-color: rgb(48, 179, 48);
+  --light-blue:#d1eef9;
+  --light-yellow: #f0f9d1;
+  --light-green: #d1f9e6;
+}
+
 ul li {
   list-style-type: none;
 }
-
 

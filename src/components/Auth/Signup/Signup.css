@@ -19,7 +19,7 @@
 .sign-up-content h2 {   
     text-align: center;
     margin-bottom: 1em;
-    color: #3754db;
+    color: var(--blue-color);
     width: 100%;
 }
 .sign-up-content .inputs {
@@ -39,27 +39,27 @@
     padding: 10px;
     border: none;
     border-radius: 8px;
-    background-color: #3754db;
+    background-color: var(--blue-color);
     color: #fff;
     cursor: pointer;
     font-size: 0.825rem;
     width: 100%;
 }
 .sign-up-btn:hover {
-    background-color: rgba(49, 83, 235, 0.854);
+    background-color: var(--blue-hover-color);
 }
 .sign-up-content .alt-sign {
     cursor: pointer;
     font-size: 0.975rem;
 }
 .sign-up-content .alt-sign:hover {
-    color: #3754db;
+    color: var(--blue-color);
 }
 .error-input {
-    border-color: red;
+    border-color: var(--red-color);
 }
 .error {
-    color: red;
+    color: var(--red-color);
     font-size: 0.900rem;
 }
 .pass-validation {
@@ -68,18 +68,18 @@
     align-items: flex-start;
     width: 100%;
     padding-left: 1em;
-    color: #989898;
+    color: var(--grey-color);
 }
 .pass-validation p {
     font-size: 0.875rem;
 }
 
 .valid {
-    color: rgb(48, 179, 48);
+    color: var(--green-color);
 }
 .spinner {
     border: 4px solid rgba(0, 0, 0, 0.1);
-    border-left-color: #3754db;
+    border-left-color: var(--blue-color);
     border-radius: 50%;
     width: 24px;
     height: 24px;

@@ -21,16 +21,16 @@
   background-color: black;
 }
 .filter-items li:hover{
-  color: #3754db;
+  color: var(--blue-color);
   transition: ease-in, 0.2s;
 }
 .filter-items li:hover::after {
-  background-color: #3754db;
+  background-color: var(--blue-color);
   transition: ease-in, 0.2s;
 }
 li.active {
-  color: #3754db;
+  color: var(--blue-color);
 }
 li.active::after {
-  background-color: #3754db;
+  background-color: var(--blue-color);
 }

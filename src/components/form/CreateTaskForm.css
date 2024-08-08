@@ -44,7 +44,7 @@ form {
   display: flex;
   flex-direction: column;
   margin: auto;
-  background-color: #3754db;
+  background-color: var(--blue-color);
   border: 0;
   color: #ffffff;
   padding: 15px 40px;
@@ -53,11 +53,11 @@ form {
   font-weight: 700;
 }
 .button-primary:hover {
-  background-color: rgba(49, 83, 235, 0.854);
+  background-color: var(--blue-hover-color);
   transition: 0.6s ease;
 }
 .error {
-  color: red;
+  color: var(--red-color);
   font-size: 0.900rem;
 }
 

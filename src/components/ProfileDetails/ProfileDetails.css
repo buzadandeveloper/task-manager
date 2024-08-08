@@ -5,7 +5,7 @@
 }
 
 .up-details p {
-    background-color: white;
+    background-color: #fff;
     border-radius: 12px;
     padding: 0.3em 0.8em;
     font-size: 1rem;
@@ -50,7 +50,7 @@
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    background-color: #3754DB;
+    background-color: var(--blue-color);
     position: absolute;
     top: 0;
     left: 0;
@@ -58,7 +58,7 @@
 }
 
 .file-label:hover::before {
-    background-color: #007bff;
+    background-color: var(--blue-hover-color);
 }
 
 .file-label::after {
@@ -75,7 +75,7 @@
     background-color: transparent;
     display: flex;
     justify-content: flex-end;
-    color: #3754DB;
+    color: var(--blue-color);
     cursor: pointer;
 }
 
@@ -85,19 +85,19 @@
 
 .ch-pass-btn:hover,
 .save-pass-btn:hover {
-    color: #007bff;
+    color: var(--blue-hover-color);
     transition: ease-in 0.3s;
 }
 
 .back-pass-btn {
     border: none;
     background-color: transparent;
-    color: #D12B2B;
+    color: var(--red-color);
     cursor: pointer;
 }
 
 .back-pass-btn:hover {
-    color: red;
+    color: rgb(232, 36, 36);
     transition: ease-in 0.2s;
 }
 

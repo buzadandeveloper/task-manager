@@ -68,6 +68,7 @@ function Signin({ handleChangeAuth }) {
             onChange={hadnleAuthData}
             type="email"
             name="email"
+            className={errors.email && "error-input"}
             placeholder="Email"
           />
           {errors.email && <span className="error">{errors.email}</span>}
@@ -76,6 +77,7 @@ function Signin({ handleChangeAuth }) {
             onChange={hadnleAuthData}
             type="password"
             name="password"
+            className={errors.password && "error-input"}
             placeholder="Password"
           />
           {errors.password && <span className="error">{errors.password}</span>}

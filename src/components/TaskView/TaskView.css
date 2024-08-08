@@ -58,7 +58,7 @@ h2 {
 }
 
 .task-footer .delete-task {
-  color: rgb(209, 43, 43);
+  color: var(--red-color);
   transform: translateY(8px);
   font-size: 1rem;
   border: none;
@@ -76,7 +76,7 @@ h2 {
   bottom: 0px;
   left: 0;
   visibility: hidden;
-  background-color: rgb(209, 43, 43);
+  background-color: var(--red-color);
   transition: all 0.3s ease-in-out;
 }
 
@@ -125,7 +125,7 @@ textarea::-webkit-scrollbar {
   border: none;
   background-color: #ffffff;
   cursor: pointer;
-  color: #3754db;
+  color: var(--blue-color);
   font-size: 1rem;
   transform: translateY(8px);
   position: relative;
@@ -140,7 +140,7 @@ textarea::-webkit-scrollbar {
   bottom: 15px;
   left: 0;
   visibility: hidden;
-  background-color: #3754db;
+  background-color: var(--blue-color);
   transition: all 0.3s ease-in-out;
 }
 
@@ -150,7 +150,7 @@ textarea::-webkit-scrollbar {
 }
 
 .edit-name-error {
-  color: red;
+  color: var(--red-color);
   font-size: 0.9rem;
   transform: translateY(-10px);
 }

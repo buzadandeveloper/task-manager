@@ -12,13 +12,13 @@
   line-height: 0.875rem;
 }
 .badge.to-do {
-  background-color: #d1eef9;
+  background-color: var(--light-blue);
 }
 .badge.in-progress {
-  background-color: #f0f9d1;
+  background-color: var(--light-yellow);
 }
 .badge.completed {
-  background-color: #d1f9e6;
+  background-color: var(--light-green);
 }
 .badge-pointer {
   cursor: pointer;
@@ -55,13 +55,13 @@
   cursor: pointer;
 }
 .dropdown-item.to-do:hover {
-  background-color: #d1eef9;
+  background-color: var(--light-blue);
 }
 .dropdown-item.in-progress:hover {
-  background-color: #f0f9d1;
+  background-color: var(--light-yellow);
 }
 .dropdown-item.completed:hover {
-  background-color: #d1f9e6;
+  background-color: var(--light-green);
 }
 .dropdown-item:hover {
   background-color: #e8e8e8;

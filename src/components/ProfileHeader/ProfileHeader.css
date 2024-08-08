@@ -20,12 +20,12 @@
 
 .edit-btn,
 .head-up .save-btn-up {
-    color: #3754DB;
+    color: var(--blue-color);
 }
 
 .logout-btn,
 .head-up .cancel-btn-up {
-    color: #D12B2B;
+    color: var(--red-color);
 }
 
 .edit-btn:hover,
