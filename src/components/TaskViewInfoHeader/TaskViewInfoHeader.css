@@ -1,0 +1,11 @@
+.task-info-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6em;
+}
+
+.task-info-header h3 {
+  margin: 0;
+  line-height: 1;
+}
