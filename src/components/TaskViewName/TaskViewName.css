@@ -1,0 +1,6 @@
+.edit-name-error {
+    color: var(--red-color);
+    font-size: 0.9rem;
+    transform: translateY(-10px);
+  }
+
