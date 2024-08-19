@@ -181,6 +181,16 @@
     padding-left: 0.1em;
     padding-right: 0.1em;
     width: 310px;
+    height: 660px;
+  }
+
+  .task-list-container {
+    height: 610px;
+  }
+
+  .task-list-grid {
+    grid-template-rows: repeat(1, 130px);
+    gap: 1em;
   }
 }
 

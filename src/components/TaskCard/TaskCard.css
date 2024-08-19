@@ -12,6 +12,7 @@
 .card-header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .task-id {
@@ -40,7 +41,7 @@
 .card-footer {
   display: flex;
   flex-direction: row;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
 }
 
@@ -88,5 +89,26 @@
   .card-content p,
   .card-footer p {
     font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 390px) {
+  .card-wrapper {
+    height: 130px;
+  }
+
+  .card-content {
+    margin: 0.2em;
+  }
+
+  .card-content p {
+    font-size: 0.8rem;
+  }
+
+  .card-header .task-id {
+    font-size: 0.8rem;
+  }
+  .card-footer .open-task-btn {
+    font-size: 0.7rem;
   }
 }

@@ -91,3 +91,9 @@
     text-align: center;
   }
 }
+
+@media (max-width: 390px) {
+  .badge p {
+    font-size: 0.7rem;
+  }
+}
