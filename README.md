@@ -14,13 +14,21 @@ https://task-manager-bd.netlify.app/
 - React: JavaScript library for building user interfaces
 
 ## Getting Started
-- Clone the Repository 
+- Clone the Repository
+```bash
 git clone https://github.com/buzadandeveloper/task-manager.git
+```
 - Navigate to the Project Directory
+```bash
 cd task-manager
+```
 - Install Dependencies
+```bash
 npm install
+```
 - Start the Development Server
+```bash
 npm run dev
+```
 
   
