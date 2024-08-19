@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import "./ControlPanel.css";
-import CreateButton from "../CreateTaskButton/CreateButton";
+import CreateButton from "../CreateTaskButton/CreateTaskButton";
 import FilterStatus from "../FilterStatus/FilterStatus";
 import { TaskContext } from "../Context/TaskContext";
 import { useAuth } from "../Context/AuthContext";
