@@ -101,3 +101,35 @@
     transform: rotate(360deg);
   }
 }
+
+@media (min-width: 2000px) {
+  .sign-up-content {
+    width: 400px;
+  }
+
+  .sign-up-content h2 {
+    font-size: 2rem;
+  }
+
+  .sign-up-content input {
+    font-size: 1rem;
+  }
+
+  .pass-validation p {
+    font-size: 1rem;
+  }
+
+  .sign-up-btn {
+    font-size: 1rem;
+  }
+
+  .sign-up-content .alt-sign {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .sign-up-content {
+    width: 300px;
+  }
+}

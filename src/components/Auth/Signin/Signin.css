@@ -80,3 +80,31 @@
     transform: rotate(360deg);
   }
 }
+
+@media (min-width: 2000px) {
+  .sign-in-content {
+    min-width: 400px;
+  }
+
+  .sign-in-content h2 {
+    font-size: 2rem;
+  }
+
+  .sign-in-content input {
+    font-size: 1rem;
+  }
+
+  .sign-in-btn {
+    font-size: 1rem;
+  }
+
+  .sign-in-content .alt-sign {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .sign-in-content {
+    width: 300px;
+  }
+}
