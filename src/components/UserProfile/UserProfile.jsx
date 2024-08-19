@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import "./UserProfile.css";
 import ProfileHeader from "../ProfileHeader/ProfileHeader";
 import ProfileImageEditor from "../ProfileImageEditor/ProfileImageEditor";
@@ -8,7 +8,7 @@ import Calendar from "../Calendar/Calendar";
 import { isEmailRegistered } from "../Utils/AuthUtils";
 import imageDefault from "../../assets/task-icon/task-icon.png";
 
-function UserProfile() {
+function UserProfile({ isProfileVisible }) {
   const { logout, user, updateProfile } = useAuth();
   const [editUserProfile, setEditUserProfile] = useState(false);
   const [changePassword, setChangePassword] = useState(false);
@@ -150,7 +150,7 @@ function UserProfile() {
   };
 
   return (
-    <div className="main-container-up">
+    <div className={`user-profile ${isProfileVisible && "visible"}`}>
       <ProfileHeader
         editUserProfile={editUserProfile}
         handleSave={handleSave}
@@ -180,7 +180,9 @@ function UserProfile() {
           name={user.name}
           email={user.email}
         />
-        <Calendar />
+        <div>
+          <Calendar />
+        </div>
       </div>
     </div>
   );
