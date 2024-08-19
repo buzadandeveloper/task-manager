@@ -1,6 +1,6 @@
 import React from "react";
 import "./TaskViewFooter.css";
-import DueDate from "../DateContainer/DueDate";
+import DueDate from "../DueDate/DueDate";
 
 const TaskViewFooter = ({
   isEditing,
