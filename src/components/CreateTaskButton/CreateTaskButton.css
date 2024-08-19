@@ -1,0 +1,42 @@
+.create-task-btn {
+  padding: 1em 2em;
+  border-radius: 12px;
+  border: 0;
+  cursor: pointer;
+  background-color: var(--blue-color);
+  color: #fff;
+  transition: 0.6s ease;
+  font-size: 0.875rem;
+  line-height: 1;
+}
+
+.create-task-btn:hover {
+  background-color: var(--blue-hover-color);
+}
+
+@media (max-width: 1250px) {
+  .create-task-btn {
+    padding: 1.2em 1.5em;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 900px){
+  .create-task-btn {
+    font-size: 0.75rem;
+    height: 3em;
+    padding: 0em 2em;
+  }
+}
+
+@media (max-width: 630px) {
+  .create-task-btn {
+    padding: 0 0.5em;
+  }
+}
+
+@media (max-width:490px) {
+  .create-task-btn {
+    font-size: 0.7rem;
+  }
+}
