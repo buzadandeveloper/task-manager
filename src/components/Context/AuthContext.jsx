@@ -46,6 +46,7 @@ const authReducer = (state, action) => {
 export function AuthProvider({ children }) {
   const [state, dispatch] = useReducer(authReducer, initialState);
   const [isInitialized, setIsInitialized] = useState(false);
+  const [isProfileVisible, setIsProfileVisible] = useState(false);
 
   useEffect(() => {
     const storedUser = localStorage.getItem("loggedInUser");
@@ -65,6 +66,7 @@ export function AuthProvider({ children }) {
   const logout = () => {
     localStorage.removeItem("loggedInUser");
     dispatch({ type: "LOGOUT" });
+    setIsProfileVisible(false);
   };
 
   const updateProfile = (image, name, email, password) => {
@@ -79,9 +81,21 @@ export function AuthProvider({ children }) {
     dispatch({ type: "UPDATE_PROFILE", payload: updatedUser });
   };
 
+  const toggleProfile = () => {
+    setIsProfileVisible(prev => !prev);
+  };
+
   return (
     <AuthContext.Provider
-      value={{ ...state, login, logout, updateProfile, isInitialized }}
+      value={{
+        ...state,
+        login,
+        logout,
+        updateProfile,
+        isInitialized,
+        isProfileVisible,
+        toggleProfile
+      }}
     >
       {children}
     </AuthContext.Provider>
