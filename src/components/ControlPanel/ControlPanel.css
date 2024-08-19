@@ -1,4 +1,90 @@
+.control-panel-wrapper {
+  position: sticky;
+  top: 0;
+  background-color: rgb(232, 230, 230);
+  padding: 0 1em;
+}
+
 .cp-up {
   display: flex;
   justify-content: space-between;
+}
+
+.profile-btn {
+  display: none;
+}
+
+.profile-btn:hover {
+  background-color: var(--blue-hover-color);
+}
+
+.profile-btn-img {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .buttons-pr-cr {
+    display: flex;
+    gap: 2em;
+  }
+
+  .profile-btn-img {
+    display: flex;
+    width: 50px;
+    border: 2px solid var(--blue-color);
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .profile-btn {
+    padding: 0em 2em;
+    font-size: 0.8rem;
+    border-radius: 12px;
+    border: 0;
+    cursor: pointer;
+    background-color: var(--blue-color);
+    color: #fff;
+    transition: 0.6s ease;
+    display: block;
+    line-height: 1;
+    transition: 0.6s ease;
+  }
+}
+
+@media (max-width: 900px) {
+  .profile-btn {
+    font-size: 0.75rem;
+    height: 3em;
+  }
+
+  .profile-btn-img {
+    height: 40px;
+    width: 40px;
+  }
+}
+
+@media (max-width: 630px) {
+  .buttons-pr-cr {
+    gap: 0.5em;
+    margin-bottom: 0.5em;
+  }
+}
+
+@media (max-width: 490px) {
+  .profile-btn-img {
+    height: 37px;
+    width: 37px;
+  }
+  .profile-btn {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 430px) {
+  .cp-up h3 {
+    font-size: 1rem;
+  }
+  .cp-up {
+    gap: 3em;
+  }
 }
