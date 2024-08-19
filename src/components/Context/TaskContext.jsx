@@ -6,22 +6,22 @@ const initialTasks = [
   {
     id: "T-1",
     status: "Completed",
-    name: "Create a Design System for Enum Workspace.",
-    taskDetails: "iasfioasnf saolfnasof  aosfaosf",
+    name: "Create a Design System for Workspace.",
+    taskDetails: "Welcome to Task Manager",
     dueDate: new Date(2024, 4, 13)
   },
   {
     id: "T-2",
     status: "In Progress",
-    name: "Create a Design System for Enum Workspace.",
-    taskDetails: "iasfioasnf saolfnasof  aosfaosf",
+    name: "Create a Design System for Workspace.",
+    taskDetails: "Welcome to Task Manager",
     dueDate: new Date(2024, 4, 13)
   },
   {
     id: "T-3",
     status: "To Do",
-    name: "Create a Design System for Enum Workspace.",
-    taskDetails: "iasfioasnf saolfnasof  aosfaosf",
+    name: "Create a Design System for Workspace.",
+    taskDetails: "Welcome to Task Manager",
     dueDate: new Date(2024, 4, 14)
   }
 ];
@@ -77,7 +77,11 @@ function TaskProvider({ children }) {
   };
 
   const handleDeleteTask = id => {
-    const newTaskList = taskList.filter(li => li.id !== id);
+    let newTaskList = taskList.filter(li => li.id !== id);
+    newTaskList = newTaskList.map((task, index) => ({
+      ...task,
+      id: `T-${index + 1}`
+    }));
     setTaskList(newTaskList);
     setIsTaskViewOpen(false);
   };
