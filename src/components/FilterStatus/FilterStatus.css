@@ -41,3 +41,15 @@ li.active {
 li.active::after {
   background-color: var(--blue-color);
 }
+
+@media (max-width: 430px) {
+  .filter-items {
+    margin-top: 0.6em;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .filter-items li {
+    font-size: 0.85rem;
+  }
+}
