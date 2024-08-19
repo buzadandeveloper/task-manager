@@ -50,5 +50,10 @@
 @media (max-width: 390px) {
   .user-profile.visible {
     width: 310px;
+    height: 660px;
+  }
+
+  .content-up {
+    gap: 0.5em;
   }
 }
