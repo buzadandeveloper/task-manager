@@ -53,3 +53,15 @@ textarea {
 textarea::-webkit-scrollbar {
   display: none;
 }
+
+@media (max-width: 430px) {
+  .task-info-wrapper {
+    width: 16em;
+  }
+}
+
+@media (max-width: 340px) {
+  .task-info-wrapper {
+    width: 14em;
+  }
+}
