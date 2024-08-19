@@ -4,6 +4,7 @@ import CreateButton from "../CreateTaskButton/CreateTaskButton";
 import FilterStatus from "../FilterStatus/FilterStatus";
 import { TaskContext } from "../Context/TaskContext";
 import { useAuth } from "../Context/AuthContext";
+import DefaultImage from "../../assets/task-icon/task-icon.png";
 
 function ControlPanel() {
   const { openModal, taskList, setFilter, filteredLength } =
@@ -17,7 +18,7 @@ function ControlPanel() {
           <div className="buttons-pr-cr">
             <img
               className="profile-btn-img"
-              src={user.image}
+              src={user.image || DefaultImage}
               alt="profile-image"
               onClick={toggleProfile}
             />
