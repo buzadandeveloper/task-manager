@@ -13,7 +13,7 @@ A Task Manager application built with Vite and React. Manage tasks by adding, ed
 
 ## Getting Started
 - Clone the Repository 
-git clone https://github.com/username/task-manager.git](https://github.com/buzadandeveloper/task-manager.git
+git clone https://github.com/buzadandeveloper/task-manager.git
 - Navigate to the Project Directory
 cd task-manager
 - Install Dependencies
