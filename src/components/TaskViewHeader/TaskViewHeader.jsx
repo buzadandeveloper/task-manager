@@ -1,6 +1,6 @@
 import React from "react";
 import "./TaskViewHeader.css";
-import Badge from "../Badget/Badge";
+import Badge from "../Badget/Badget";
 
 const TaskViewHeader = ({ id, status, openTaskInfo, updateTaskStatus }) => {
   return (
