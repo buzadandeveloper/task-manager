@@ -1,6 +1,6 @@
 import React from "react";
 import "./EmptyListView.css";
-import CreateButton from "../CreateTaskButton/CreateButton";
+import CreateButton from "../CreateTaskButton/CreateTaskButton";
 import TaskIcon from "../../assets/task-icon/task-icon.png";
 
 function EmptyListView({ openModal, filter }) {
