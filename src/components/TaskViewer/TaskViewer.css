@@ -148,6 +148,14 @@
     width: 210px;
     height: 550px;
   }
+
+  .task-view-container {
+    height: 720px;
+  }
+
+  .task-list-container {
+    height: 660px;
+  }
 }
 
 @media (max-width: 490px) {
@@ -161,7 +169,11 @@
   .task-view-container {
     border-radius: 25px;
     width: 370px;
-    height: 764px;
+    height: 700px;
+  }
+
+  .task-list-container {
+    height: 650px;
   }
 
   .task-list-grid {
@@ -185,7 +197,7 @@
   }
 
   .task-list-container {
-    height: 610px;
+    height: 600px;
   }
 
   .task-list-grid {
