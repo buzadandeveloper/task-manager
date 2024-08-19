@@ -1,6 +1,6 @@
 import React from "react";
 import "./TaskCard.css";
-import Badge from "../Badget/Badget";
+import Badge from "../BadgetTask/BadgetTask";
 import DueDate from "../DueDate/DueDate";
 
 export default function TaskCard({
