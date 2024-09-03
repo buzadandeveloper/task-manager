@@ -7,7 +7,7 @@ https://task-manager-bd.netlify.app/
 ## Features
 - Add, edit, and delete tasks
 - Filter tasks by status (To Do, In Progress, Completed)
-- User authentication
+- User authentication(Local Storage)
   
 ## Technologies
 - Vite: Modern build tool
