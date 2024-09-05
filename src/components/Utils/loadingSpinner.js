@@ -1,4 +1,4 @@
-const LoadingSpinner = async (authData, setIsLoading, navigate) => {
+const loadingSpinner = async (setIsLoading, navigate) => {
   setIsLoading(true);
   try {
     await new Promise(resolve => setTimeout(resolve, 2000));
@@ -10,4 +10,4 @@ const LoadingSpinner = async (authData, setIsLoading, navigate) => {
   }
 };
 
-export default LoadingSpinner;
+export default loadingSpinner;

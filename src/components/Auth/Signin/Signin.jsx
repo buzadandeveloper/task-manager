@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../Context/AuthContext";
-import LoadingSpinner from "../../Utils/LoadingSpinner";
+import loadingSpinner from "../../Utils/loadingSpinner";
 import "./Signin.css";
-import { checkAuthDataLocalStorage } from "../../Utils/AuthUtils";
+import { checkAuthDataLocalStorage } from "../../Utils/authUtils";
 
 function Signin({ handleChangeAuth }) {
   const [authData, setAuthData] = useState({
@@ -49,7 +49,7 @@ function Signin({ handleChangeAuth }) {
       const { success, user, message } = checkAuthDataLocalStorage(authData);
       if (success) {
         login(user.name, user.email, user.password, user.image);
-        await LoadingSpinner(authData, setIsLoading, navigate);
+        await loadingSpinner(setIsLoading, navigate);
       } else {
         setErrors({ general: message });
       }

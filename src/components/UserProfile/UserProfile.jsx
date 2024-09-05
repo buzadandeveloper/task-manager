@@ -5,7 +5,7 @@ import ProfileImageEditor from "../ProfileImageEditor/ProfileImageEditor";
 import ProfileDetails from "../ProfileDetails/ProfileDetails";
 import { useAuth } from "../Context/AuthContext";
 import Calendar from "../Calendar/Calendar";
-import { isEmailRegistered } from "../Utils/AuthUtils";
+import { isEmailRegistered } from "../Utils/authUtils";
 import imageDefault from "../../assets/task-icon/task-icon.png";
 
 function UserProfile({ isProfileVisible }) {

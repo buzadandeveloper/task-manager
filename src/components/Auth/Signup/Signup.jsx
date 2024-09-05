@@ -3,11 +3,11 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../Context/AuthContext";
 import "./Signup.css";
 import { FaRegCheckCircle } from "react-icons/fa";
-import LoadingSpinner from "../../Utils/LoadingSpinner";
+import loadingSpinner from "../../Utils/loadingSpinner";
 import {
   saveAuthDataLocalStorage,
   isEmailRegistered
-} from "../../Utils/AuthUtils";
+} from "../../Utils/authUtils";
 
 function Signup({ handleChangeAuth }) {
   const [authData, setAuthData] = useState({
@@ -85,7 +85,7 @@ function Signup({ handleChangeAuth }) {
     if (Object.keys(newErrors).length === 0) {
       saveAuthDataLocalStorage(authData);
       login(authData.name, authData.email, authData.password);
-      await LoadingSpinner(authData, setIsLoading, navigate);
+      await loadingSpinner(setIsLoading, navigate);
     } else {
       setErrors(newErrors);
     }
