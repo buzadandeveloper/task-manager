@@ -21,7 +21,6 @@ function UserProfile({ isProfileVisible }) {
   });
 
   const [imgaeFile, setImageFile] = useState(null);
-  const [scale, setScale] = useState(1);
   const editorRef = useRef(null);
 
   useEffect(() => {
@@ -164,7 +163,7 @@ function UserProfile({ isProfileVisible }) {
           editUserProfile={editUserProfile}
           handleChangeImage={handleChangeImage}
           imgaeFile={imgaeFile}
-          scale={scale}
+          scale={1}
           editorRef={editorRef}
           userProfileData={userProfileData}
         />
